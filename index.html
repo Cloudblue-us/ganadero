@@ -6,10 +6,10 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta
-            name="description"
-            content="Documentation for the Kittn API"
+            name="descripción"
+            content="Documentación integraciones con ganadero"
         >
-    <title>API Reference</title>
+    <title>Integración Ganadero</title>
 
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -295,7 +295,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;json&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -303,12 +303,9 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+      <img src="images/logo-df36e3b4.png" class="logo" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="json">json</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -316,282 +313,440 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#introduccion" class="toc-h1 toc-link" data-title="Introducción">Introducción</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#clientes" class="toc-h1 toc-link" data-title="Clientes">Clientes</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#consultar-clientes" class="toc-h2 toc-link" data-title="Consultar clientes">Consultar clientes</a>
                   </li>
               </ul>
           </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
-          </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://www.cloudblue.us/' target='_blank'>CloudBlue</a></li>
             <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves all kittens.</p>
+        <h1 id='introduccion'>Introducción</h1>
+<p>Métodos de integración para proyecto Ganadero.</p>
+<h1 id='clientes'>Clientes</h1>
+<p>Consulta a la entidad financiera o agente externo de la infromación del cliente.</p>
+<h2 id='consultar-clientes'>Consultar clientes</h2>
+<p>El método consulta al banco o entidad externa la información </p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<p><code>GET por/definir</code></p>
+<h3 id='content-type'>Content-type</h3>
+<p><code>application/json</code></p>
+<h3 id='objeto-de-consulta'>Objeto de consulta</h3>
+<blockquote>
+<p>Ejemplo de objeto de consulta</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"tipoDeIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CI"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"carnetDeIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345gh"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SC"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>tipoDeIdentificacion</td>
+<td>string</td>
+<td>Tipo de identificación del cliente, CI para carnet de identificación, CIE para Cédula de extranjería</td>
 </tr>
 <tr>
-<td>available</td>
+<td>carnetDeIdentificacion</td>
+<td>string</td>
+<td>Número del carnet de identificación</td>
+</tr>
+<tr>
+<td>extension</td>
+<td>string</td>
+<td>Sufijo con el código del estado de emisión del carnet</td>
+</tr>
+</tbody></table>
+<h3 id='objeto-de-respuesta'>Objeto de respuesta</h3>
+<blockquote>
+<p>Ejemplo de objeto de respuesta</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Juanita"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"apellidoPaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pérez"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"apellidoMaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ramirez"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"apellidoDeCasada"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de Rodríguez"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sexo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Femenino"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fechaDeNacimiento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-05-21"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"correoElectronico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"juanita.perez@prueba.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"estadoCivil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casado/a"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"informacionDelConyuge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Juan"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"apellidoPaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rodríguez"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"apellidoMaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sanchez"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"apellidoDeCasada"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sexo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Masculino"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fechaDeNacimiento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1968-03-14"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"correoElectronico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"juan.rodriguez@prueba.com"</span><span class="p">,</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"informacionDeResidencia"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"direccion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle del Alto, N 50"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"departamento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Paz"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ciudad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Paz"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"telefono"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"informacionLaboral"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"lugarDeTrabajo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa de construcción ABC"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cargo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gerente"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"profesion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ingeniero"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"actividadEconomica"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fechaDeIngresoAlTrabajo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-15"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"domicilioComercial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle de los ingenieros, N 12"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"departamento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Paz"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ciudad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Paz"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"telefono"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"correoElectronico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacto@abcconstructores.com"</span><span class="w"> 
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"referencias"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Juan"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apellidoPaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pérez"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apellidoMaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ramirez"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apellidoDeCasada"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"relacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hermano"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"telefono"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234789"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"correoElectronico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"juan@prueba.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"entidad"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bancaria"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alberto"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apellidoPaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marquez"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apellidoMaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apellidoDeCasada"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"relacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"telefono"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234789"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"correoElectronico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alberto@bancomayor.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"entidad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Banco Mayor"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Atributo</th>
+<th>tipo</th>
+<th>Requerido</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>nombre</td>
+<td>string</td>
 <td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>Nombre del cliente</td>
+</tr>
+<tr>
+<td>apellidoPaterno</td>
+<td>string</td>
+<td>true</td>
+<td>Apellido paterno del cliente</td>
+</tr>
+<tr>
+<td>apellidoMaterno</td>
+<td>string</td>
+<td>false</td>
+<td>Apellido materno del cliente</td>
+</tr>
+<tr>
+<td>apellidoDeCasada</td>
+<td>string</td>
+<td>false</td>
+<td>Apellido de casada de la cliente</td>
+</tr>
+<tr>
+<td>sexo</td>
+<td>string</td>
+<td>true</td>
+<td>Sexo del cliente. Valores permitidos <code>Masculino</code> o <code>Femenino</code></td>
+</tr>
+<tr>
+<td>fechaDeNacimiento</td>
+<td>date</td>
+<td>true</td>
+<td>Fecha de nacimiento del cliente</td>
+</tr>
+<tr>
+<td>correoElectronico</td>
+<td>string</td>
+<td>true</td>
+<td>Correo electrónico del cliente</td>
+</tr>
+<tr>
+<td>estadoCivil</td>
+<td>string</td>
+<td>true</td>
+<td>Estado civil del cliente. Valores permitidos <code>Casado</code>, <code>Soltero</code>, <code>Separado</code> o <code>Viudo</code></td>
+</tr>
+<tr>
+<td>informacionDelConyuge</td>
+<td><a href="#Informacion-del-conyugue">Información del cónyuge</a></td>
+<td>false</td>
+<td>Contiene la información del cónyuge del cliente</td>
+</tr>
+<tr>
+<td>informacionDeResidencia</td>
+<td><a href="#Informacion-de-residencia">Información de residencia</a></td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>informacionLaboral</td>
+<td><a href="#Informacion-laboral">Información laboral</a></td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td>referencias</td>
+<td>Arreglo de <a href="#Referencias">Referencias</a></td>
+<td>false</td>
+<td></td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='informacion-del-conyuge'>Información del cónyuge</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th>Atributo</th>
+<th>tipo</th>
+<th>Requerido</th>
+<th>Descripción</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>nombre</td>
+<td>string</td>
+<td>true</td>
+<td>Nombre del cónyuge</td>
+</tr>
+<tr>
+<td>apellidoPaterno</td>
+<td>string</td>
+<td>true</td>
+<td>Apellido paterno del cónyuge</td>
+</tr>
+<tr>
+<td>apellidoMaterno</td>
+<td>string</td>
+<td>false</td>
+<td>Apellido materno del cónyuge</td>
+</tr>
+<tr>
+<td>apellidoDeCasada</td>
+<td>string</td>
+<td>false</td>
+<td>Apellido de casada de la cónyuge</td>
+</tr>
+<tr>
+<td>sexo</td>
+<td>string</td>
+<td>true</td>
+<td>Sexo del cónyuge. Valores permitidos <code>Masculino</code> o <code>Femenino</code></td>
+</tr>
+<tr>
+<td>fechaDeNacimiento</td>
+<td>date</td>
+<td>true</td>
+<td>Fecha de nacimiento del cónyuge</td>
+</tr>
+<tr>
+<td>correoElectronico</td>
+<td>string</td>
+<td>true</td>
+<td>Correo electrónico del cónyuge</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-X</span> DELETE <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='informacion-de-residencia'>Información de residencia</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th>Atributo</th>
+<th>tipo</th>
+<th>Requerido</th>
+<th>Descripción</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>direccion</td>
+<td>string</td>
+<td>true</td>
+<td>Dirección de residencia del cliente</td>
+</tr>
+<tr>
+<td>departamento</td>
+<td>string</td>
+<td>true</td>
+<td>Departamento de residencia <code>*Por definir si es codificado</code></td>
+</tr>
+<tr>
+<td>ciudad</td>
+<td>string</td>
+<td>true</td>
+<td>Ciudad de residencia <code>*Por definir si es codificado</code></td>
+</tr>
+<tr>
+<td>telefono</td>
+<td>string</td>
+<td>true</td>
+<td>Teléfono del cliente</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
-
+<h3 id='informacion-laboral'>Información laboral</h3>
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Atributo</th>
+<th>tipo</th>
+<th>Requerido</th>
+<th>Descripción</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>lugarDeTrabajo</td>
+<td>string</td>
+<td>true</td>
+<td>Lugar de trabajo del cliente</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>cargo</td>
+<td>string</td>
+<td>false</td>
+<td>Cargo del cliente</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>profesion</td>
+<td>string</td>
+<td>true</td>
+<td>Profesión del cliente <code>revisar el listado de profesiones</code></td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>actividadEconomica</td>
+<td>string</td>
+<td>false</td>
+<td></td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>fechaDeIngresoAlTrabajo</td>
+<td>date</td>
+<td>false</td>
+<td></td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td>domicilioComercial</td>
+<td>string</td>
+<td>false</td>
+<td></td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td>departamento</td>
+<td>string</td>
+<td>false</td>
+<td>Departamento del lugar de trabajo <code>*Por definir si es codificado</code></td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td>ciudad</td>
+<td>string</td>
+<td>false</td>
+<td>Ciudad del lugar de trabajo <code>*Por definir si es codificado</code></td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>telefono</td>
+<td>string</td>
+<td>false</td>
+<td>Teléfono del lugar de trabajo</td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td>correoElectronico</td>
+<td>string</td>
+<td>false</td>
+<td>Correo electrónico del lugar de trabajo</td>
+</tr>
+</tbody></table>
+<h3 id='referencias'>Referencias</h3>
+<table><thead>
+<tr>
+<th>Atributo</th>
+<th>tipo</th>
+<th>Requerido</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tipo</td>
+<td>string</td>
+<td>true</td>
+<td>Define el tipo de referencia. Los valores válidos son <code>Personal</code> o <code>Bancaria</code></td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>nombre</td>
+<td>string</td>
+<td>true</td>
+<td>Nombre del contacto de referencia</td>
+</tr>
+<tr>
+<td>apellidoPaterno</td>
+<td>string</td>
+<td>true</td>
+<td>Apellido paterno del contacto de referencia</td>
+</tr>
+<tr>
+<td>apellidoMaterno</td>
+<td>string</td>
+<td>false</td>
+<td>Apellido materno del contacto de referencia</td>
+</tr>
+<tr>
+<td>apellidoDeCasada</td>
+<td>string</td>
+<td>false</td>
+<td>Apellido de casada de la contacto de referencia</td>
+</tr>
+<tr>
+<td>relacion</td>
+<td>string</td>
+<td>false</td>
+<td>Si el tipo de referencia es <code>Personal</code> aca se escribe el tipo de relación personal que tiene el contacto con el cliente</td>
+</tr>
+<tr>
+<td>telefono</td>
+<td>string</td>
+<td>false</td>
+<td>Teléfono del lugar de trabajo</td>
+</tr>
+<tr>
+<td>correoElectronico</td>
+<td>string</td>
+<td>true</td>
+<td>Correo electrónico del contacto</td>
+</tr>
+<tr>
+<td>entidad</td>
+<td>string</td>
+<td>false</td>
+<td>Si el tipo de referencia es <code>Bancaria</code> aca se escribe la entidad bancaria a la que pertenece el contacto</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="json">json</a>
           </div>
       </div>
     </div>
