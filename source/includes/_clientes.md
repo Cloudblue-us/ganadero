@@ -1,10 +1,10 @@
 # Clientes
 
-Consulta a la entidad financiera o agente externo de la infromación del cliente.
+Consulta a la entidad financiera o agente externo de la información del cliente.
 
 ## Consultar clientes
 
-El método consulta al banco o entidad externa la información 
+El método consulta al banco o entidad externa la información personal, de contacto y relaciones del cliente
 
 ### HTTP Request
 `GET por/definir`

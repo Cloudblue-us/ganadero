@@ -10,6 +10,7 @@ toc_footers:
 
 includes:
   - introduccion
+  - financiera
   - clientes
 
 search: true
