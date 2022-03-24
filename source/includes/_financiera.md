@@ -24,7 +24,6 @@ El método consulta al banco o entidad externa la información financiera del cr
 
 Atributo | Tipo | Descripción
 -------- | ---- | -----------
-tipoDeOperacion | string | Codificación del tipo de crédito u operación `*por codificar`
 numeroDeOperacion | string | Número de operación o referencia del producto a asegurar
 
 ### Objeto de respuesta
