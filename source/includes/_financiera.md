@@ -37,8 +37,9 @@ numeroDeOperacion | string | Número de operación o referencia del producto a a
     "deudores": [ 
         {
             "tipoIdentificacion": "CI",
-            "numeroDeIdentificacion": "123456",
-            "extension": "SC",
+            "numeroDeIdentificacion": 123456,
+            "complementoIdentificacion": "1A",
+            "extensionIdentificacion": "SC",
             "tipoDeDeudor": "Titular",
             "porcentajeOperacion": 100,
             "moneda": "USD",
@@ -64,7 +65,7 @@ numeroDeOperacion | string | Número de operación o referencia del producto a a
 Atributo | Tipo | Descripción
 -------- | ---- | -----------
 tipoDeOperacion | string | Codificación del tipo de crédito u operación `*por codificar`
-moneda | string | Codificación de la moneda ISO 4217
+moneda | string | Codificación de la [moneda ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)
 montoSolicitado | number | Valor del crédito total
 deudores | Arreglo de [Deudores](#deudores) | Listado de deudores
 
@@ -73,11 +74,12 @@ deudores | Arreglo de [Deudores](#deudores) | Listado de deudores
 Atributo | Tipo | Descripción
 -------- | ---- | -----------
 tipoIdentificacion | string | Codificación del documento de identificación de deudor
-numeroDeIdentificacion | string | Número de identificación
-extension | string | Sufijo con el código del estado de emisión del carnet
+numeroDeIdentificacion | number | Número de identificación
+complementoIdentificacion | string | Complemento al número de identificación
+extensionIdentificacion | string | Sufijo con el código del estado de emisión del carnet
 tipoDeDeudor | string | Tipo de deudor `Titular` o `Codeudor`
 porcentajeOperacion | number | Porcentaje de participación de la operación
-moneda | string | Codificación de la moneda ISO 4217
+moneda | string | Codificación de la [moneda ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)
 montoActualSolicitado | number | Valor del crédito total
 plazoPresenteCredito | number | Plazo en meses del crédito
 valorAcumulado | number | Valor del cúmulo para el deudor

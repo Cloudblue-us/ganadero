@@ -19,16 +19,18 @@ El método consulta al banco o entidad externa la información personal, de cont
 ```json
 {
     "tipoDeIdentificacion": "CI",
-    "carnetDeIdentificacion": "12345gh",
-    "extension": "SC"
+    "numeroDeIdentificacion": 12345,
+    "complementoIdentificacion": "1A",
+    "extensionIdentificacion": "SC",        
 }
 ```
 
-Atributo | Tipo | Descripción
--------- | ---- | -----------
-tipoDeIdentificacion | string | Tipo de identificación del cliente, CI para carnet de identificación, CIE para Cédula de extranjería
-carnetDeIdentificacion | string | Número del carnet de identificación
-extension | string | Sufijo con el código del estado de emisión del carnet
+Atributo | Tipo | Requerido | Descripción
+-------- | ---- | --------- | -----------
+tipoDeIdentificacion | string | true | Tipo de identificación del cliente, CI para carnet de identificación, CIE para Cédula de extranjería
+numeroDeIdentificacion | number | true | Número del carnet de identificación
+complementoIdentificacion | string | true | Complemento al número de identificación
+extensionIdentificacion | string | true | Sufijo con el código del estado de emisión del carnet
 
 ### Objeto de respuesta
 
