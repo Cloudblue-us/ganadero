@@ -111,9 +111,9 @@ fechaDeNacimiento | date | true | Fecha de nacimiento del cliente
 correoElectronico | string | true | Correo electrónico del cliente
 estadoCivil | string | true | Estado civil del cliente. Valores permitidos `Casado`, `Soltero`, `Separado` o `Viudo`
 informacionDelConyuge | [Información del cónyuge](#Informacion-del-conyugue) | false | Contiene la información del cónyuge del cliente
-informacionDeResidencia | [Información de residencia](#Informacion-de-residencia) | true | 
-informacionLaboral | [Información laboral](#Informacion-laboral) | true | 
-referencias | Arreglo de [Referencias](#Referencias) | false |
+informacionDeResidencia | [Información de residencia](#Informacion-de-residencia) | true | Contiene la información de residencia del cliente
+informacionLaboral | [Información laboral](#Informacion-laboral) | true | Contiene la información laboral del cliente
+referencias | Arreglo de [Referencias](#Referencias) | false | Referencias personales y bancarias del cliente
 
 ### Información del cónyuge
 
