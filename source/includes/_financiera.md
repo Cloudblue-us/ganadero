@@ -37,7 +37,7 @@ numeroDeOperacion | string | Número de operación o referencia del producto a a
     "deudores": [ 
         {
             "tipoIdentificacion": "CI",
-            "numeroDeIdentificacion": 123456,
+            "numeroDeIdentificacion": "123456",
             "complementoIdentificacion": "1A",
             "extensionIdentificacion": "SC",
             "tipoDeDeudor": "Titular",
@@ -50,7 +50,8 @@ numeroDeOperacion | string | Número de operación o referencia del producto a a
         {
             "tipoIdentificacion": "CI",
             "numeroDeIdentificacion": "987654",
-            "extension": "SC",
+            "complementoIdentificacion": "1A",
+            "extensionIdentificacion": "SC",
             "tipoDeDeudor": "Codeudor",
             "porcentajeOperacion": 100,
             "moneda": "USD",
