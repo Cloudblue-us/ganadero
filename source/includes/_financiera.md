@@ -35,7 +35,6 @@ numeroDeSolicitud | string | Número de operación o referencia del producto a a
     "moneda": "USD",
     "montoSolicitado": 30000,
     "plazoPresenteCredito": 100,
-    "montoActualSolicitado": 100,
     "deudores": [ 
         {
             "tipoIdentificacion": "CI",
@@ -43,7 +42,6 @@ numeroDeSolicitud | string | Número de operación o referencia del producto a a
             "complementoIdentificacion": "1A",
             "extensionIdentificacion": "SC",
             "tipoDeDeudor": "Titular",
-            "moneda": "USD",
             "saldoInsoluto": 100
         },
         {
@@ -52,7 +50,6 @@ numeroDeSolicitud | string | Número de operación o referencia del producto a a
             "complementoIdentificacion": "1A",
             "extensionIdentificacion": "SC",
             "tipoDeDeudor": "Codeudor",
-            "moneda": "USD",
             "saldoInsoluto": 100
         }
     ]
@@ -65,7 +62,6 @@ tipoDeOperacion | string | Codificación del tipo de crédito u operación `*por
 moneda | string | Codificación de la [moneda ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)
 montoSolicitado | number | Valor del crédito total
 plazoPresenteCredito | number | Plazo en meses del crédito
-montoActualSolicitado | number | Valor del crédito total
 deudores | Arreglo de [Deudores](#deudores) | Listado de deudores
 
 ### Deudores
