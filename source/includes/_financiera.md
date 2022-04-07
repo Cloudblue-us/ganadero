@@ -18,13 +18,13 @@ El método consulta al banco o entidad externa la información financiera del cr
 
 ```json
 {
-    "numeroDeOperacion": "1000000001"
+    "numeroDeSolicitud": "1000000001"
 }
 ```
 
 Atributo | Tipo | Descripción
 -------- | ---- | -----------
-numeroDeOperacion | string | Número de operación o referencia del producto a asegurar
+numeroDeSolicitud | string | Número de operación o referencia del producto a asegurar
 
 ### Objeto de respuesta
 > Ejemplo de objeto de respuesta
