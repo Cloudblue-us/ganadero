@@ -37,6 +37,7 @@ fechaFinal | Date | Fecha final de la consulta de pólizas pagadas
         {
             "numeroDeSolicitud": "101116026",
             "valorAsegurado": 100,
+            "prima": 10,
             "cuota" : 1,
             "periodo": 30,
             "producto": "DHL",
@@ -48,6 +49,7 @@ fechaFinal | Date | Fecha final de la consulta de pólizas pagadas
         {
             "numeroDeSolicitud": "101116026",
             "valorAsegurado": 100,
+            "prima": 10,
             "cuota" : 1,
             "periodo": 30,
             "producto": "DHL",
@@ -59,6 +61,7 @@ fechaFinal | Date | Fecha final de la consulta de pólizas pagadas
         {
             "numeroDeSolicitud": "101116027",
             "valorAsegurado": 100,
+            "prima": 10,
             "cuota" : 10,
             "periodo": 90,
             "producto": "DHL",
@@ -81,6 +84,7 @@ Atributo | Tipo | Descripción
 -------- | ---- | -----------
 numeroDeSolicitud | string | Número de operación o referencia del producto a asegurar
 valorAsegurado | number | Valor restante de la operacion para el deudor
+prima | number | Valor de la cuota pagada
 cuota | number | Número de cuota que se esta pagando
 periodo | number | periodo en días que se estan pagando
 producto | string | Codificación del tipo de crédito u operación `*por codificar`
