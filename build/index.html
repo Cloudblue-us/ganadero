@@ -934,8 +934,8 @@
 <p>Ejemplo de objeto de consulta</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"fechaInicial"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-21"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fechaFinal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-21"</span><span class="w">
+    </span><span class="nl">"fechaInicial"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-21 00:00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fechaFinal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-21 24:59:59"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
@@ -965,6 +965,7 @@
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"numeroDeOperacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101116026"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"valorAsegurado"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cuota"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="nl">"periodo"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
             </span><span class="nl">"producto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DHL"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"tipoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CI"</span><span class="p">,</span><span class="w">
@@ -975,6 +976,7 @@
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"numeroDeOperacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101116026"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"valorAsegurado"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cuota"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="nl">"periodo"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
             </span><span class="nl">"producto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DHL"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"tipoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CI"</span><span class="p">,</span><span class="w">
@@ -985,6 +987,7 @@
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"numeroDeOperacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101116027"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"valorAsegurado"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cuota"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
             </span><span class="nl">"periodo"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w">
             </span><span class="nl">"producto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DHL"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"tipoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CI"</span><span class="p">,</span><span class="w">
@@ -1025,6 +1028,11 @@
 <td>valorAsegurado</td>
 <td>number</td>
 <td>Valor restante de la operacion para el deudor</td>
+</tr>
+<tr>
+<td>cuota</td>
+<td>number</td>
+<td>Número de cuota que se esta pagando</td>
 </tr>
 <tr>
 <td>periodo</td>

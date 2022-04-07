@@ -18,8 +18,8 @@ El método consulta al banco o entidad externa las pólizas que se han pagado en
 
 ```json
 {
-    "fechaInicial" : "2022-05-21",
-    "fechaFinal" : "2022-05-21"
+    "fechaInicial" : "2022-05-21 00:00:00",
+    "fechaFinal" : "2022-05-21 24:59:59"
 }
 ```
 
@@ -37,6 +37,7 @@ fechaFinal | Date | Fecha final de la consulta de pólizas pagadas
         {
             "numeroDeOperacion": "101116026",
             "valorAsegurado": 100,
+            "cuota" : 1,
             "periodo": 30,
             "producto": "DHL",
             "tipoIdentificacion": "CI",
@@ -47,6 +48,7 @@ fechaFinal | Date | Fecha final de la consulta de pólizas pagadas
         {
             "numeroDeOperacion": "101116026",
             "valorAsegurado": 100,
+            "cuota" : 1,
             "periodo": 30,
             "producto": "DHL",
             "tipoIdentificacion": "CI",
@@ -57,6 +59,7 @@ fechaFinal | Date | Fecha final de la consulta de pólizas pagadas
         {
             "numeroDeOperacion": "101116027",
             "valorAsegurado": 100,
+            "cuota" : 10,
             "periodo": 90,
             "producto": "DHL",
             "tipoIdentificacion": "CI",
@@ -78,6 +81,7 @@ Atributo | Tipo | Descripción
 -------- | ---- | -----------
 numeroDeOperacion | string | Número de operación o referencia del producto a asegurar
 valorAsegurado | number | Valor restante de la operacion para el deudor
+cuota | number | Número de cuota que se esta pagando
 periodo | number | periodo en días que se estan pagando
 producto | string | Codificación del tipo de crédito u operación `*por codificar`
 tipoIdentificacion | string | Codificación del documento de identificación de deudor
