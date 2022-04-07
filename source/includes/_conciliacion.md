@@ -35,7 +35,7 @@ fechaFinal | Date | Fecha final de la consulta de pólizas pagadas
 {
     "operaciones": [
         {
-            "numeroDeOperacion": "101116026",
+            "numeroDeSolicitud": "101116026",
             "valorAsegurado": 100,
             "cuota" : 1,
             "periodo": 30,
@@ -46,7 +46,7 @@ fechaFinal | Date | Fecha final de la consulta de pólizas pagadas
             "extensionIdentificacion": "SC"
         },
         {
-            "numeroDeOperacion": "101116026",
+            "numeroDeSolicitud": "101116026",
             "valorAsegurado": 100,
             "cuota" : 1,
             "periodo": 30,
@@ -57,7 +57,7 @@ fechaFinal | Date | Fecha final de la consulta de pólizas pagadas
             "extensionIdentificacion": "SR"
         },
         {
-            "numeroDeOperacion": "101116027",
+            "numeroDeSolicitud": "101116027",
             "valorAsegurado": 100,
             "cuota" : 10,
             "periodo": 90,
@@ -79,7 +79,7 @@ operaciones | Arreglo de [Items de conciliación](#items-de-conciliacion) | Las 
 
 Atributo | Tipo | Descripción
 -------- | ---- | -----------
-numeroDeOperacion | string | Número de operación o referencia del producto a asegurar
+numeroDeSolicitud | string | Número de operación o referencia del producto a asegurar
 valorAsegurado | number | Valor restante de la operacion para el deudor
 cuota | number | Número de cuota que se esta pagando
 periodo | number | periodo en días que se estan pagando
