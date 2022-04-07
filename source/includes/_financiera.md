@@ -34,6 +34,8 @@ numeroDeSolicitud | string | Número de operación o referencia del producto a a
     "tipoDeOperacion": "DHL",
     "moneda": "USD",
     "montoSolicitado": 30000,
+    "plazoPresenteCredito": 100,
+    "montoActualSolicitado": 100,
     "deudores": [ 
         {
             "tipoIdentificacion": "CI",
@@ -41,11 +43,8 @@ numeroDeSolicitud | string | Número de operación o referencia del producto a a
             "complementoIdentificacion": "1A",
             "extensionIdentificacion": "SC",
             "tipoDeDeudor": "Titular",
-            "porcentajeOperacion": 100,
             "moneda": "USD",
-            "montoActualSolicitado": 100,
-            "plazoPresenteCredito": 100,
-            "valorAcumulado": 100
+            "saldoInsoluto": 100
         },
         {
             "tipoIdentificacion": "CI",
@@ -53,11 +52,8 @@ numeroDeSolicitud | string | Número de operación o referencia del producto a a
             "complementoIdentificacion": "1A",
             "extensionIdentificacion": "SC",
             "tipoDeDeudor": "Codeudor",
-            "porcentajeOperacion": 100,
             "moneda": "USD",
-            "montoActualSolicitado": 100,
-            "plazoPresenteCredito": 100,
-            "valorAcumulado": 100
+            "saldoInsoluto": 100
         }
     ]
 }
@@ -68,6 +64,8 @@ Atributo | Tipo | Descripción
 tipoDeOperacion | string | Codificación del tipo de crédito u operación `*por codificar`
 moneda | string | Codificación de la [moneda ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)
 montoSolicitado | number | Valor del crédito total
+plazoPresenteCredito | number | Plazo en meses del crédito
+montoActualSolicitado | number | Valor del crédito total
 deudores | Arreglo de [Deudores](#deudores) | Listado de deudores
 
 ### Deudores
@@ -79,8 +77,4 @@ numeroDeIdentificacion | number | Número de identificación
 complementoIdentificacion | string | Complemento al número de identificación
 extensionIdentificacion | string | Sufijo con el código del estado de emisión del carnet
 tipoDeDeudor | string | Tipo de deudor `Titular` o `Codeudor`
-porcentajeOperacion | number | Porcentaje de participación de la operación
-moneda | string | Codificación de la [moneda ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)
-montoActualSolicitado | number | Valor del crédito total
-plazoPresenteCredito | number | Plazo en meses del crédito
-valorAcumulado | number | Valor del cúmulo para el deudor
+saldoInsoluto | number | Valor de los créditos que tiene el deudor en el banco
