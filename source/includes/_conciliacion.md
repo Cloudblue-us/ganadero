@@ -20,7 +20,7 @@ El método consulta al banco o entidad externa las pólizas que se han pagado en
 {
     "fechaInicial" : "2022-05-21 00:00:00",
     "fechaFinal" : "2022-05-21 24:59:59",
-    "tipoProducto"
+    "tipoProducto" : ""
 }
 ```
 
