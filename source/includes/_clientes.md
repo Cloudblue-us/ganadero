@@ -46,6 +46,15 @@ extensionIdentificacion | string | true | Sufijo con el código del estado de em
     "fechaDeNacimiento": "1970-05-21",
     "correoElectronico": "juanita.perez@prueba.com",
     "estadoCivil": "Casado/a",
+    "nacionalidad": "Boliviana",
+    "redesSociales": "",
+    "cantidadHijos": 0,
+    "ingresoPesos": "",
+    "nivelIngresos": 00000,
+    "nivelEducacion": "",
+    "discapacitado": false,
+    "tipoDeVivienda": "",
+    "porcentajeCreditoAsumido": 70,
     "informacionDelConyuge": {
         "nombre": "Juan",
         "apellidoPaterno": "Rodríguez",
@@ -56,10 +65,12 @@ extensionIdentificacion | string | true | Sufijo con el código del estado de em
         "correoElectronico": "juan.rodriguez@prueba.com",
     },
     "informacionDeResidencia": {
+        "paisDeResidencia": "Bolivia",
         "direccion": "Calle del Alto, N 50",
         "departamento": "La Paz",
         "ciudad": "La Paz",
-        "telefono": "123456789"
+        "telefono": "1234567",
+        "celular" : "12345678"
     },
     "informacionLaboral": {
         "lugarDeTrabajo": "Empresa de construcción ABC",
@@ -110,6 +121,15 @@ sexo | string | true | Sexo del cliente. Valores permitidos `Masculino` o `Femen
 fechaDeNacimiento | date | true | Fecha de nacimiento del cliente
 correoElectronico | string | true | Correo electrónico del cliente
 estadoCivil | string | true | Estado civil del cliente. Valores permitidos `Casado`, `Soltero`, `Separado` o `Viudo`
+nacionalidad | number | Código de la nacionalidad del cliente `*por definir*`
+redesSociales | string | `*por definir*`
+cantidadHijos | number | Cantidad de hijos del cliente
+ingresoPesos | number | `*por definir*`
+nivelIngresos | number | `*por definir*`
+nivelEducacion | string | `*por definir*`
+discapacitado | boolean | `*por definir*`
+tipoDeVivienda | string | `*por definir*`
+porcentajeCreditoAsumido | number | Porcentaje del crédito asumido por el cliente
 informacionDelConyuge | [Información del cónyuge](#Informacion-del-conyugue) | false | Contiene la información del cónyuge del cliente
 informacionDeResidencia | [Información de residencia](#Informacion-de-residencia) | true | Contiene la información de residencia del cliente
 informacionLaboral | [Información laboral](#Informacion-laboral) | true | Contiene la información laboral del cliente
@@ -131,6 +151,7 @@ correoElectronico | string | true | Correo electrónico del cónyuge
 
 Atributo | tipo | Requerido | Descripción
 -------- | ---- | --------- | -----------
+paisDeResidencia | string | true | Código del país de residencia del cliente
 direccion | string | true | Dirección de residencia del cliente
 departamento | string | true | Departamento de residencia `*Por definir si es codificado`
 ciudad | string | true | Ciudad de residencia `*Por definir si es codificado`
@@ -140,7 +161,7 @@ telefono | string | true | Teléfono del cliente
 
 Atributo | tipo | Requerido | Descripción
 -------- | ---- | --------- | -----------
-lugarDeTrabajo | string | true | Lugar de trabajo del cliente
+lugarDeTrabajo | string | true | Lugar de trabajo del cliente `*por definir*`
 cargo | string | false | Cargo del cliente
 profesion | string | true | Profesión del cliente `revisar el listado de profesiones`
 actividadEconomica | string | false | 

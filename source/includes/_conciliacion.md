@@ -19,7 +19,8 @@ El método consulta al banco o entidad externa las pólizas que se han pagado en
 ```json
 {
     "fechaInicial" : "2022-05-21 00:00:00",
-    "fechaFinal" : "2022-05-21 24:59:59"
+    "fechaFinal" : "2022-05-21 24:59:59",
+    "tipoProducto"
 }
 ```
 
@@ -27,6 +28,7 @@ Atributo | Tipo | Descripción
 -------- | ---- | -----------
 fechaInicial | Date | Fecha inicial de la consulta de pólizas pagadas
 fechaFinal | Date | Fecha final de la consulta de pólizas pagadas
+tipoProducto | string | `*por codificar`
 
 ### Objeto de respuesta
 > Ejemplo de objeto de respuesta
@@ -35,40 +37,40 @@ fechaFinal | Date | Fecha final de la consulta de pólizas pagadas
 {
     "operaciones": [
         {
-            "numeroDeSolicitud": "101116026",
-            "valorAsegurado": 100,
-            "prima": 10,
-            "cuota" : 1,
-            "periodo": 30,
-            "producto": "DHL",
-            "tipoIdentificacion": "CI",
-            "numeroDeIdentificacion": 123456,
-            "complementoIdentificacion": "1A",
-            "extensionIdentificacion": "SC"
+            "numeroDeCertificado": "SC-DL22-000001",
+            "numeroDeOperacion": "123456",
+            "fechaDeDesembolso": "2022-05-21 00:00:00",
+            "fechaDeVencimientoOperacion" : "2025-05-21 00:00:00",
+            "montoDesembolsado": 100000,
+            "saldoInsoluto": 90000,
+            "interesesReportados": 0,
+            "periodoPago": 30,
+            "primaTotal": 1000,
+            "diferimiento": false
         },
         {
-            "numeroDeSolicitud": "101116026",
-            "valorAsegurado": 100,
-            "prima": 10,
-            "cuota" : 1,
-            "periodo": 30,
-            "producto": "DHL",
-            "tipoIdentificacion": "CI",
-            "numeroDeIdentificacion": 123458,
-            "complementoIdentificacion": "2A",
-            "extensionIdentificacion": "SR"
+            "numeroDeCertificado": "SC-DL22-000002",
+            "numeroDeOperacion": "123456",
+            "fechaDeDesembolso": "2022-05-21 00:00:00",
+            "fechaDeVencimientoOperacion" : "2025-05-21 00:00:00",
+            "montoDesembolsado": 100000,
+            "saldoInsoluto": 90000,
+            "interesesReportados": 0,
+            "periodoPago": 30,
+            "primaTotal": 1000,
+            "diferimiento": false
         },
         {
-            "numeroDeSolicitud": "101116027",
-            "valorAsegurado": 100,
-            "prima": 10,
-            "cuota" : 10,
-            "periodo": 90,
-            "producto": "DHL",
-            "tipoIdentificacion": "CI",
-            "numeroDeIdentificacion": 876454,
-            "complementoIdentificacion": "1A",
-            "extensionIdentificacion": "SC"
+            "numeroDeCertificado": "SC-DL22-000003",
+            "numeroDeOperacion": "123456",
+            "fechaDeDesembolso": "2022-05-21 00:00:00",
+            "fechaDeVencimientoOperacion" : "2025-05-21 00:00:00",
+            "montoDesembolsado": 100000,
+            "saldoInsoluto": 90000,
+            "interesesReportados": 0,
+            "periodoPago": 30,
+            "primaTotal": 1000,
+            "diferimiento": false
         }
     ]
 }
@@ -82,13 +84,13 @@ operaciones | Arreglo de [Items de conciliación](#items-de-conciliacion) | Las 
 
 Atributo | Tipo | Descripción
 -------- | ---- | -----------
-numeroDeSolicitud | string | Número de operación o referencia del producto a asegurar
-valorAsegurado | number | Valor restante de la operacion para el deudor
-prima | number | Valor de la cuota pagada
-cuota | number | Número de cuota que se esta pagando
-periodo | number | periodo en días que se estan pagando
-producto | string | Codificación del tipo de crédito u operación `*por codificar`
-tipoIdentificacion | string | Codificación del documento de identificación de deudor
-numeroDeIdentificacion | number | Número de identificación
-complementoIdentificacion | string | Complemento al número de identificación
-extensionIdentificacion | string | Sufijo con el código del estado de emisión del carnet
+numeroDeCertificado | string | Número de certificado del producto asegurado
+numeroDeOperacion | string | Número de operación o referencia del producto asegurado
+fechaDeDesembolso | Date | Fecha en la cual se desembolsó el crédito asegurado. Formato: `yyyy-MM-dd HH:mm:ss`
+fechaDeVencimientoOperacion | Date | Fecha en la cual se vence el crédito asegurado. Formato: `yyyy-MM-dd HH:mm:ss`
+montoDesembolsado | number | Valor del crédito que se desembolsó
+saldoInsoluto | number | Valor del saldo insoluto del crédito desembolsado
+interesesReportados | number | `*por definir`
+periodoPago | number | Cantidad de días que se pagan en la cuota
+primaTotal | number | Valor total de prima cobrado para el seguro
+diferimiento | boolean | 

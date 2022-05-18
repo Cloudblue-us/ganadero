@@ -34,23 +34,23 @@ numeroDeSolicitud | string | Número de operación o referencia del producto a a
     "tipoDeOperacion": "DHL",
     "moneda": "USD",
     "montoSolicitado": 30000,
-    "plazoPresenteCredito": 100,
+    "plazoCredito": 100,
+    "departamento": 100,
+    "ciudad": 100,
     "deudores": [ 
         {
             "tipoIdentificacion": "CI",
             "numeroDeIdentificacion": "123456",
             "complementoIdentificacion": "1A",
             "extensionIdentificacion": "SC",
-            "tipoDeDeudor": "Titular",
-            "saldoInsoluto": 100
+            "tipoDeDeudor": "Titular"
         },
         {
             "tipoIdentificacion": "CI",
             "numeroDeIdentificacion": "987654",
             "complementoIdentificacion": "1A",
             "extensionIdentificacion": "SC",
-            "tipoDeDeudor": "Codeudor",
-            "saldoInsoluto": 100
+            "tipoDeDeudor": "Codeudor"
         }
     ]
 }
@@ -61,7 +61,9 @@ Atributo | Tipo | Descripción
 tipoDeOperacion | string | Codificación del tipo de crédito u operación `*por codificar`
 moneda | string | Codificación de la [moneda ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)
 montoSolicitado | number | Valor del crédito total
-plazoPresenteCredito | number | Plazo en meses del crédito
+plazoCredito | number | Plazo en meses del crédito
+departamento | number | Código del departamento donde se solicitó el crédito `*por codificar`
+ciudad | number | Código de la ciudad donde se solicitó el crédito `*por codificar`
 deudores | Arreglo de [Deudores](#deudores) | Listado de deudores
 
 ### Deudores
@@ -73,4 +75,3 @@ numeroDeIdentificacion | number | Número de identificación
 complementoIdentificacion | string | Complemento al número de identificación
 extensionIdentificacion | string | Sufijo con el código del estado de emisión del carnet
 tipoDeDeudor | string | Tipo de deudor `Titular` o `Codeudor`
-saldoInsoluto | number | Valor de los créditos que tiene el deudor en el banco
