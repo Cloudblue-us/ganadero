@@ -332,6 +332,14 @@
               </ul>
           </li>
           <li>
+            <a href="#cumulo" class="toc-h1 toc-link" data-title="Cúmulo">Cúmulo</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#cumulo-de-clientes" class="toc-h2 toc-link" data-title="Cúmulo de clientes">Cúmulo de clientes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#conciliacion" class="toc-h1 toc-link" data-title="Conciliación">Conciliación</a>
               <ul class="toc-list-h2">
                   <li>
@@ -387,23 +395,23 @@
     </span><span class="nl">"tipoDeOperacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DHL"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"moneda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"montoSolicitado"</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"plazoPresenteCredito"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"plazoCredito"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"departamento"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ciudad"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nl">"deudores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"tipoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CI"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"numeroDeIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"complementoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"extensionIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SC"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"tipoDeDeudor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Titular"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"saldoInsoluto"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+            </span><span class="nl">"tipoDeDeudor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Titular"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"tipoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CI"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"numeroDeIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"987654"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"complementoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"extensionIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SC"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"tipoDeDeudor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Codeudor"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"saldoInsoluto"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+            </span><span class="nl">"tipoDeDeudor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Codeudor"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -431,9 +439,19 @@
 <td>Valor del crédito total</td>
 </tr>
 <tr>
-<td>plazoPresenteCredito</td>
+<td>plazoCredito</td>
 <td>number</td>
 <td>Plazo en meses del crédito</td>
+</tr>
+<tr>
+<td>departamento</td>
+<td>number</td>
+<td>Código del departamento donde se solicitó el crédito <code>*por codificar</code></td>
+</tr>
+<tr>
+<td>ciudad</td>
+<td>number</td>
+<td>Código de la ciudad donde se solicitó el crédito <code>*por codificar</code></td>
 </tr>
 <tr>
 <td>deudores</td>
@@ -473,11 +491,6 @@
 <td>tipoDeDeudor</td>
 <td>string</td>
 <td>Tipo de deudor <code>Titular</code> o <code>Codeudor</code></td>
-</tr>
-<tr>
-<td>saldoInsoluto</td>
-<td>number</td>
-<td>Valor de los créditos que tiene el deudor en el banco</td>
 </tr>
 </tbody></table>
 <h1 id='clientes'>Clientes</h1>
@@ -545,6 +558,15 @@
     </span><span class="nl">"fechaDeNacimiento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-05-21"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"correoElectronico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"juanita.perez@prueba.com"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"estadoCivil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casado/a"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nacionalidad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boliviana"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"redesSociales"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cantidadHijos"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ingresoPesos"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nivelIngresos"</span><span class="p">:</span><span class="w"> </span><span class="mi">00000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nivelEducacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"discapacitado"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tipoDeVivienda"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"porcentajeCreditoAsumido"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
     </span><span class="nl">"informacionDelConyuge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Juan"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"apellidoPaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rodríguez"</span><span class="p">,</span><span class="w">
@@ -555,10 +577,12 @@
         </span><span class="nl">"correoElectronico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"juan.rodriguez@prueba.com"</span><span class="p">,</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"informacionDeResidencia"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"paisDeResidencia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bolivia"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"direccion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle del Alto, N 50"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"departamento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Paz"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"ciudad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Paz"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"telefono"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="w">
+        </span><span class="nl">"telefono"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"celular"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"informacionLaboral"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"lugarDeTrabajo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa de construcción ABC"</span><span class="p">,</span><span class="w">
@@ -655,6 +679,60 @@
 <td>Estado civil del cliente. Valores permitidos <code>Casado</code>, <code>Soltero</code>, <code>Separado</code> o <code>Viudo</code></td>
 </tr>
 <tr>
+<td>nacionalidad</td>
+<td>number</td>
+<td>Código de la nacionalidad del cliente <code>*por definir*</code></td>
+<td></td>
+</tr>
+<tr>
+<td>redesSociales</td>
+<td>string</td>
+<td><code>*por definir*</code></td>
+<td></td>
+</tr>
+<tr>
+<td>cantidadHijos</td>
+<td>number</td>
+<td>Cantidad de hijos del cliente</td>
+<td></td>
+</tr>
+<tr>
+<td>ingresoPesos</td>
+<td>number</td>
+<td><code>*por definir*</code></td>
+<td></td>
+</tr>
+<tr>
+<td>nivelIngresos</td>
+<td>number</td>
+<td><code>*por definir*</code></td>
+<td></td>
+</tr>
+<tr>
+<td>nivelEducacion</td>
+<td>string</td>
+<td><code>*por definir*</code></td>
+<td></td>
+</tr>
+<tr>
+<td>discapacitado</td>
+<td>boolean</td>
+<td><code>*por definir*</code></td>
+<td></td>
+</tr>
+<tr>
+<td>tipoDeVivienda</td>
+<td>string</td>
+<td><code>*por definir*</code></td>
+<td></td>
+</tr>
+<tr>
+<td>porcentajeCreditoAsumido</td>
+<td>number</td>
+<td>Porcentaje del crédito asumido por el cliente</td>
+<td></td>
+</tr>
+<tr>
 <td>informacionDelConyuge</td>
 <td><a href="#Informacion-del-conyugue">Información del cónyuge</a></td>
 <td>false</td>
@@ -741,6 +819,12 @@
 </tr>
 </thead><tbody>
 <tr>
+<td>paisDeResidencia</td>
+<td>string</td>
+<td>true</td>
+<td>Código del país de residencia del cliente</td>
+</tr>
+<tr>
 <td>direccion</td>
 <td>string</td>
 <td>true</td>
@@ -778,7 +862,7 @@
 <td>lugarDeTrabajo</td>
 <td>string</td>
 <td>true</td>
-<td>Lugar de trabajo del cliente</td>
+<td>Lugar de trabajo del cliente <code>*por definir*</code></td>
 </tr>
 <tr>
 <td>cargo</td>
@@ -899,6 +983,80 @@
 <td>Si el tipo de referencia es <code>Bancaria</code> aca se escribe la entidad bancaria a la que pertenece el contacto</td>
 </tr>
 </tbody></table>
+<h1 id='cumulo'>Cúmulo</h1>
+<p>Método para la consulta de cúmulo para clientes titulares / codeudores hacia SFDC</p>
+<h2 id='cumulo-de-clientes'>Cúmulo de clientes</h2>
+<p>El método consulta al banco o entidad externa el valor de cúmulo del cliente</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET por/definir</code></p>
+<h3 id='content-type'>Content-type</h3>
+<p><code>application/json</code></p>
+<h3 id='objeto-de-consulta'>Objeto de consulta</h3>
+<blockquote>
+<p>Ejemplo de objeto de consulta</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"tipoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CI"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"numeroDeIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"complementoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extensionIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SC"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tipoProducto"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tipoIdentificacion</td>
+<td>string</td>
+<td>Codificación del documento de identificación de deudor</td>
+</tr>
+<tr>
+<td>numeroDeIdentificacion</td>
+<td>number</td>
+<td>Número de identificación</td>
+</tr>
+<tr>
+<td>complementoIdentificacion</td>
+<td>string</td>
+<td>Complemento al número de identificación</td>
+</tr>
+<tr>
+<td>extensionIdentificacion</td>
+<td>string</td>
+<td>Sufijo con el código del estado de emisión del carnet</td>
+</tr>
+<tr>
+<td>tipoProducto</td>
+<td>string</td>
+<td><code>*por codificar</code></td>
+</tr>
+</tbody></table>
+<h3 id='objeto-de-respuesta'>Objeto de respuesta</h3>
+<blockquote>
+<p>Ejemplo de objeto de respuesta</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"saldoAdeudado"</span><span class="p">:</span><span class="w"> </span><span class="mi">987654</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>saldoAdeudado</td>
+<td>number</td>
+<td>Valor adeudado a la fecha de consulta por el cliente titular/codeudor</td>
+</tr>
+</tbody></table>
 <h1 id='conciliacion'>Conciliación</h1>
 <p>Métodos para la conciliación de pagos hacia SF</p>
 <h2 id='conciliacion-de-pago-de-polizas'>Conciliación de pago de pólizas</h2>
@@ -913,7 +1071,8 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"fechaInicial"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-21 00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fechaFinal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-21 24:59:59"</span><span class="w">
+    </span><span class="nl">"fechaFinal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-21 24:59:59"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tipoProducto"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
@@ -933,6 +1092,11 @@
 <td>Date</td>
 <td>Fecha final de la consulta de pólizas pagadas</td>
 </tr>
+<tr>
+<td>tipoProducto</td>
+<td>string</td>
+<td><code>*por codificar</code></td>
+</tr>
 </tbody></table>
 <h3 id='objeto-de-respuesta'>Objeto de respuesta</h3>
 <blockquote>
@@ -941,40 +1105,40 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"operaciones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"numeroDeSolicitud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101116026"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"valorAsegurado"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"prima"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"cuota"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"periodo"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"producto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DHL"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"tipoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CI"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"numeroDeIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"complementoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"extensionIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SC"</span><span class="w">
+            </span><span class="nl">"numeroDeCertificado"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SC-DL22-000001"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"numeroDeOperacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fechaDeDesembolso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-21 00:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fechaDeVencimientoOperacion"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-21 00:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"montoDesembolsado"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"saldoInsoluto"</span><span class="p">:</span><span class="w"> </span><span class="mi">90000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"interesesReportados"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"periodoPago"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"primaTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"diferimiento"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"numeroDeSolicitud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101116026"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"valorAsegurado"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"prima"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"cuota"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"periodo"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"producto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DHL"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"tipoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CI"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"numeroDeIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="mi">123458</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"complementoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2A"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"extensionIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SR"</span><span class="w">
+            </span><span class="nl">"numeroDeCertificado"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SC-DL22-000002"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"numeroDeOperacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fechaDeDesembolso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-21 00:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fechaDeVencimientoOperacion"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-21 00:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"montoDesembolsado"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"saldoInsoluto"</span><span class="p">:</span><span class="w"> </span><span class="mi">90000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"interesesReportados"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"periodoPago"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"primaTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"diferimiento"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"numeroDeSolicitud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101116027"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"valorAsegurado"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"prima"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"cuota"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"periodo"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"producto"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DHL"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"tipoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CI"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"numeroDeIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="mi">876454</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"complementoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"extensionIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SC"</span><span class="w">
+            </span><span class="nl">"numeroDeCertificado"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SC-DL22-000003"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"numeroDeOperacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fechaDeDesembolso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-21 00:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"fechaDeVencimientoOperacion"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-21 00:00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"montoDesembolsado"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"saldoInsoluto"</span><span class="p">:</span><span class="w"> </span><span class="mi">90000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"interesesReportados"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"periodoPago"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"primaTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"diferimiento"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1001,54 +1165,54 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>numeroDeSolicitud</td>
+<td>numeroDeCertificado</td>
 <td>string</td>
-<td>Número de operación o referencia del producto a asegurar</td>
+<td>Número de certificado del producto asegurado</td>
 </tr>
 <tr>
-<td>valorAsegurado</td>
-<td>number</td>
-<td>Valor restante de la operacion para el deudor</td>
-</tr>
-<tr>
-<td>prima</td>
-<td>number</td>
-<td>Valor de la cuota pagada</td>
-</tr>
-<tr>
-<td>cuota</td>
-<td>number</td>
-<td>Número de cuota que se esta pagando</td>
-</tr>
-<tr>
-<td>periodo</td>
-<td>number</td>
-<td>periodo en días que se estan pagando</td>
-</tr>
-<tr>
-<td>producto</td>
+<td>numeroDeOperacion</td>
 <td>string</td>
-<td>Codificación del tipo de crédito u operación <code>*por codificar</code></td>
+<td>Número de operación o referencia del producto asegurado</td>
 </tr>
 <tr>
-<td>tipoIdentificacion</td>
-<td>string</td>
-<td>Codificación del documento de identificación de deudor</td>
+<td>fechaDeDesembolso</td>
+<td>Date</td>
+<td>Fecha en la cual se desembolsó el crédito asegurado. Formato: <code>yyyy-MM-dd HH:mm:ss</code></td>
 </tr>
 <tr>
-<td>numeroDeIdentificacion</td>
+<td>fechaDeVencimientoOperacion</td>
+<td>Date</td>
+<td>Fecha en la cual se vence el crédito asegurado. Formato: <code>yyyy-MM-dd HH:mm:ss</code></td>
+</tr>
+<tr>
+<td>montoDesembolsado</td>
 <td>number</td>
-<td>Número de identificación</td>
+<td>Valor del crédito que se desembolsó</td>
 </tr>
 <tr>
-<td>complementoIdentificacion</td>
-<td>string</td>
-<td>Complemento al número de identificación</td>
+<td>saldoInsoluto</td>
+<td>number</td>
+<td>Valor del saldo insoluto del crédito desembolsado</td>
 </tr>
 <tr>
-<td>extensionIdentificacion</td>
-<td>string</td>
-<td>Sufijo con el código del estado de emisión del carnet</td>
+<td>interesesReportados</td>
+<td>number</td>
+<td><code>*por definir</code></td>
+</tr>
+<tr>
+<td>periodoPago</td>
+<td>number</td>
+<td>Cantidad de días que se pagan en la cuota</td>
+</tr>
+<tr>
+<td>primaTotal</td>
+<td>number</td>
+<td>Valor total de prima cobrado para el seguro</td>
+</tr>
+<tr>
+<td>diferimiento</td>
+<td>boolean</td>
+<td></td>
 </tr>
 </tbody></table>
 
