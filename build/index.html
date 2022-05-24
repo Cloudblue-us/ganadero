@@ -395,10 +395,16 @@
     </span><span class="nl">"tipoDeOperacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DHL"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"moneda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"montoSolicitado"</span><span class="p">:</span><span class="w"> </span><span class="mi">30000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"montoAprobado"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
     </span><span class="nl">"plazoCredito"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nl">"departamento"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ciudad"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"deudores"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+    </span><span class="nl">"lineaDeCredito"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"numero"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"moneda"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fechaDeVigencia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-15"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"deudores"</span><span class="p">:</span><span class="w"> </span><span class="p">[,</span><span class="w"> 
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"tipoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CI"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"numeroDeIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
@@ -439,6 +445,11 @@
 <td>Valor del crédito total</td>
 </tr>
 <tr>
+<td>montoAprobado</td>
+<td>number</td>
+<td>Valor apreobado del crédito</td>
+</tr>
+<tr>
 <td>plazoCredito</td>
 <td>number</td>
 <td>Plazo en meses del crédito</td>
@@ -454,9 +465,38 @@
 <td>Código de la ciudad donde se solicitó el crédito <code>*por codificar</code></td>
 </tr>
 <tr>
+<td>lineaDeCredito</td>
+<td>Objeto de <a href="#linea-de-credito">Línea de Crédito</a></td>
+<td>Parámetros de la línea de crédito</td>
+</tr>
+<tr>
 <td>deudores</td>
 <td>Arreglo de <a href="#deudores">Deudores</a></td>
 <td>Listado de deudores</td>
+</tr>
+</tbody></table>
+<h3 id='linea-de-credito'>Línea de Crédito</h3>
+<table><thead>
+<tr>
+<th>Atributo</th>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>numero</td>
+<td>string</td>
+<td>Número de la línea de crédito</td>
+</tr>
+<tr>
+<td>moneda</td>
+<td>string</td>
+<td>Codificación de la <a href="https://en.wikipedia.org/wiki/ISO_4217">moneda ISO 4217</a></td>
+</tr>
+<tr>
+<td>fechaDeVigencia</td>
+<td>date</td>
+<td>Fecha de vigencia</td>
 </tr>
 </tbody></table>
 <h3 id='deudores'>Deudores</h3>
@@ -985,6 +1025,18 @@
 </tbody></table>
 <h1 id='cumulo'>Cúmulo</h1>
 <p>Método para la consulta de cúmulo para clientes titulares / codeudores hacia SFDC</p>
+
+<p>Los cúmulos de los saldos insolutos por asegurado, deben ser enviados al Core de seguros en la moneda del crédito que está siendo solicitado y al tipo de cambio que maneje el banco. </p>
+<h4 id='operaciones-normales'>OPERACIONES NORMALES </h4>
+<p>El cúmulo es el resultado de la suma de saldos de todas las operaciones vigentes con seguro por producto (licitado y no licitado), más los límites de las líneas de crédito y montos disponibles de tarjetas de crédito vigentes que tengan seguro. </p>
+<h4 id='nuevas-lineas-de-credito'>NUEVAS LÍNEAS DE CRÉDITO </h4>
+<p>El cúmulo es el resultado de la suma de saldos de todas las operaciones vigentes que tengan seguro fuera de la línea de crédito por producto (licitado y no licitado), más los límites de las líneas de crédito y montos disponibles de tarjetas de crédito vigentes que tengan seguro.</p>
+<h4 id='operaciones-bajo-linea-de-credito-ya-instrumentada'>OPERACIONES BAJO LÍNEA DE CRÉDITO YA INSTRUMENTADA </h4>
+<p>No genera cúmulo y por tanto el Core de seguros no solicita integración. </p>
+<h4 id='reprogramaciones'>REPROGRAMACIONES </h4>
+<p>El cúmulo es el resultado de la suma de los saldos de las operaciones vigentes que tengan por producto (licitado y no licitado), considerando la particularidad de las líneas de crédito y montos disponibles de tarjetas de crédito y se resta el monto de la operación seleccionada a dar de baja por la reprogramación. </p>
+<h4 id='refinanciamiento'>REFINANCIAMIENTO </h4>
+<p>El cúmulo es el resultado de la suma de los saldos de las operaciones vigentes que tengan seguro por producto (licitado y no licitado), considerando la particularidad de las líneas de crédito y montos disponibles de tarjetas de crédito y se resta el monto de la operación seleccionada a dar de baja por el refinanciamiento. </p>
 <h2 id='cumulo-de-clientes'>Cúmulo de clientes</h2>
 <p>El método consulta al banco o entidad externa el valor de cúmulo del cliente</p>
 <h3 id='http-request'>HTTP Request</h3>
@@ -1000,7 +1052,10 @@
     </span><span class="nl">"numeroDeIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"complementoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"extensionIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SC"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"tipoProducto"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="nl">"tipoProducto"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tipoDeOperacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jts"</span><span class="p">:</span><span class="w"> </span><span class="mi">00000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"numeroDeLineaDeCredito"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
