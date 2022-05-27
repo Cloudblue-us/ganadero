@@ -24,23 +24,23 @@ El método consulta al banco o entidad externa la información financiera del cr
 
 Atributo | Tipo | Descripción
 -------- | ---- | -----------
-numeroDeSolicitud | string | Número de operación o referencia del producto a asegurar
+numeroDeSolicitud | string | Número de solicitud del producto a asegurar
 
 ### Objeto de respuesta
 > Ejemplo de objeto de respuesta
 
 ```json
 {
-    "tipoDeOperacion": "DHL",
-    "moneda": "USD",
+    "tipoDeProducto": "DHL",
+    "monedaSolicitado": "USD",
     "montoSolicitado": 30000,
-    "montoAprobado": 10000,
     "plazoCredito": 100,
     "departamento": 100,
     "ciudad": 100,
     "lineaDeCredito" : {
         "numero": "",
-        "moneda": "USD",
+        "monedaAprobada": "USD",
+        "montoAprobado": 20000,
         "fechaDeVigencia": "2020-02-15"
     },
     "deudores": [, 
@@ -64,22 +64,22 @@ numeroDeSolicitud | string | Número de operación o referencia del producto a a
 
 Atributo | Tipo | Descripción
 -------- | ---- | -----------
-tipoDeOperacion | string | Codificación del tipo de crédito u operación `*por codificar`
-moneda | string | Codificación de la [moneda ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)
-montoSolicitado | number | Valor del crédito total
-montoAprobado | number | Valor apreobado del crédito
+tipoDeProducto | string | Si cartera regulada o no regulada
+monedaSolicitado | string | Codificación de la [moneda ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) del crédito solicitado
+montoSolicitado | number | Valor del crédito solicitado en la moneda solicitada
 plazoCredito | number | Plazo en meses del crédito
 departamento | number | Código del departamento donde se solicitó el crédito `*por codificar`
 ciudad | number | Código de la ciudad donde se solicitó el crédito `*por codificar`
 lineaDeCredito | Objeto de [Línea de Crédito](#linea-de-credito) | Parámetros de la línea de crédito
-deudores | Arreglo de [Deudores](#deudores) | Listado de deudores
+deudores | Arreglo de [Deudores](#deudores) | Listado de deudor y codeudores
 
 ### Línea de Crédito
 
 Atributo | Tipo | Descripción
 -------- | ---- | -----------
 numero | string | Número de la línea de crédito
-moneda | string | Codificación de la [moneda ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)
+monedaAprobada | string | Codificación de la [moneda ISO 4217](https://en.wikipedia.org/wiki/ISO_4217)
+montoAprobado | number | Valor aprobado de la línea de crédito
 fechaDeVigencia | date | Fecha de vigencia
 
 ### Deudores
