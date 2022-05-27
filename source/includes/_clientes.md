@@ -156,6 +156,7 @@ direccion | string | true | Dirección de residencia del cliente
 departamento | string | true | Departamento de residencia `*Por definir si es codificado`
 ciudad | string | true | Ciudad de residencia `*Por definir si es codificado`
 telefono | string | true | Teléfono del cliente
+celular | string | true | Celular del cliente
 
 ### Información laboral
 
