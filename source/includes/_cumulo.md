@@ -53,7 +53,7 @@ tipoIdentificacion | string | Codificación del documento de identificación de 
 numeroDeIdentificacion | number | Número de identificación
 complementoIdentificacion | string | Complemento al número de identificación
 extensionIdentificacion | string | Sufijo con el código del estado de emisión del carnet
-tipoProducto | string | `*por codificar`
+tipoProducto | string | [Tipo de Operación](#tipo-de-operacion)
 
 ### Objeto de respuesta
 > Ejemplo de objeto de respuesta

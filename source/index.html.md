@@ -14,6 +14,7 @@ includes:
   - clientes
   - cumulo
   - conciliacion
+  - objectosglobales
 
 
 search: true
