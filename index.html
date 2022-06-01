@@ -347,6 +347,14 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#objetos-globales" class="toc-h1 toc-link" data-title="Objetos globales">Objetos globales</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#tipo-de-operacion" class="toc-h2 toc-link" data-title="Tipo de Operación">Tipo de Operación</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://www.cloudblue.us/' target='_blank'>CloudBlue</a></li>
@@ -1094,7 +1102,7 @@
 <tr>
 <td>tipoProducto</td>
 <td>string</td>
-<td><code>*por codificar</code></td>
+<td><a href="#tipo-de-operacion">Tipo de Operación</a></td>
 </tr>
 </tbody></table>
 <h3 id='objeto-de-respuesta'>Objeto de respuesta</h3>
@@ -1274,6 +1282,42 @@
 <td>diferimiento</td>
 <td>boolean</td>
 <td></td>
+</tr>
+</tbody></table>
+<h1 id='objetos-globales'>Objetos globales</h1>
+<p>Listado de objetos que se usan en varias integrciones</p>
+<h2 id='tipo-de-operacion'>Tipo de Operación</h2>
+<table><thead>
+<tr>
+<th>Tipo de operación</th>
+<th>Nomenclatura</th>
+<th>Agrupadores BGA</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Normales</td>
+<td>O</td>
+<td>O: Prestamos/Desembolsos parciales</br>C: Sobregiros en cuenta corriente (Avance contratado)</br>D: Documentos Descontados</br>G: Boletas de Garantía</br>X: Cartas de crédito</td>
+</tr>
+<tr>
+<td>Refinanciamientos</td>
+<td>OR</td>
+<td>O*: Refinanciamientos</td>
+</tr>
+<tr>
+<td>Reprogramados</td>
+<td>P</td>
+<td>P: Prestamos Reprogramados</td>
+</tr>
+<tr>
+<td>Tarjeta de crédito</td>
+<td>T</td>
+<td>T: Tarjeta Crédito</td>
+</tr>
+<tr>
+<td>Líneas de crédito</td>
+<td>A</td>
+<td>A: Líneas de crédito</td>
 </tr>
 </tbody></table>
 
