@@ -46,6 +46,7 @@ tipoProducto | string | `*por codificar`
             "interesesReportados": 0,
             "periodoPago": 30,
             "primaTotal": 1000,
+            "numeroCuentaCMS": "",
             "diferimiento": false
         },
         {
@@ -58,6 +59,7 @@ tipoProducto | string | `*por codificar`
             "interesesReportados": 0,
             "periodoPago": 30,
             "primaTotal": 1000,
+            "numeroCuentaCMS": "",
             "diferimiento": false
         },
         {
@@ -70,6 +72,7 @@ tipoProducto | string | `*por codificar`
             "interesesReportados": 0,
             "periodoPago": 30,
             "primaTotal": 1000,
+            "numeroCuentaCMS": "",
             "diferimiento": false
         }
     ]
@@ -93,4 +96,5 @@ saldoInsoluto | number | Valor del saldo insoluto del crédito desembolsado
 interesesReportados | number | `*por definir`
 periodoPago | number | Cantidad de días que se pagan en la cuota
 primaTotal | number | Valor total de prima cobrado para el seguro
+numeroCuentaCMS | string | Número identificador para tarjetas de crédito
 diferimiento | boolean | 
