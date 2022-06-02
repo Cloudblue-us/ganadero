@@ -113,7 +113,7 @@ extensionIdentificacion | string | true | Sufijo con el código del estado de em
 
 Atributo | tipo | Requerido | Descripción
 -------- | ---- | --------- | -----------
-nombre | string | true | Nombre del cliente
+nombre | string | true | Nombres del cliente
 apellidoPaterno | string | true | Apellido paterno del cliente
 apellidoMaterno | string | false | Apellido materno del cliente
 apellidoDeCasada | string | false | Apellido de casada de la cliente
@@ -139,7 +139,7 @@ referencias | Arreglo de [Referencias](#Referencias) | false | Referencias perso
 
 Atributo | tipo | Requerido | Descripción
 -------- | ---- | --------- | -----------
-nombre | string | true | Nombre del cónyuge
+nombre | string | true | Nombres del cónyuge
 apellidoPaterno | string | true | Apellido paterno del cónyuge
 apellidoMaterno | string | false | Apellido materno del cónyuge
 apellidoDeCasada | string | false | Apellido de casada de la cónyuge
@@ -178,7 +178,7 @@ correoElectronico | string | false | Correo electrónico del lugar de trabajo
 Atributo | tipo | Requerido | Descripción
 -------- | ---- | --------- | -----------
 tipo | string | true | Define el tipo de referencia. Los valores válidos son `Personal` o `Bancaria`
-nombre | string | true | Nombre del contacto de referencia
+nombre | string | true | Nombres del contacto de referencia
 apellidoPaterno | string | true | Apellido paterno del contacto de referencia
 apellidoMaterno | string | false | Apellido materno del contacto de referencia
 apellidoDeCasada | string | false | Apellido de casada de la contacto de referencia
