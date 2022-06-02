@@ -165,7 +165,7 @@ Atributo | tipo | Requerido | Descripción
 lugarDeTrabajo | string | true | Lugar de trabajo del cliente `*por definir*`
 cargo | string | false | Cargo del cliente
 profesion | string | true | Profesión del cliente `revisar el listado de profesiones`
-actividadEconomica | string | false | 
+actividadEconomica | string | false | Códigos CIIU
 fechaDeIngresoAlTrabajo | date | false | 
 domicilioComercial | string | false | 
 departamento | string | false | Departamento del lugar de trabajo `*Por definir si es codificado`
