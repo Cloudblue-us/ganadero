@@ -348,6 +348,29 @@
               </ul>
           </li>
           <li>
+            <a href="#archivos-planos" class="toc-h1 toc-link" data-title="Archivos Planos">Archivos Planos</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#certificado-de-cobertura-emitido-asociado-a-una-operacion" class="toc-h2 toc-link" data-title="Certificado de cobertura emitido asociado a una  Operación">Certificado de cobertura emitido asociado a una  Operación</a>
+                  </li>
+                  <li>
+                    <a href="#alimentar-el-detalle-de-primas-cobradas-en-el-banco-diariamente" class="toc-h2 toc-link" data-title="Alimentar el detalle de primas cobradas en el Banco diariamente.">Alimentar el detalle de primas cobradas en el Banco diariamente.</a>
+                  </li>
+                  <li>
+                    <a href="#datos-de-solicitud-seguro-tarjetas-de-credito" class="toc-h2 toc-link" data-title="Datos de solicitud seguro Tarjetas de Crédito">Datos de solicitud seguro Tarjetas de Crédito</a>
+                  </li>
+                  <li>
+                    <a href="#datos-de-solicitud-seguro-tarjetas-de-debito" class="toc-h2 toc-link" data-title="Datos de solicitud seguro Tarjetas de Débito">Datos de solicitud seguro Tarjetas de Débito</a>
+                  </li>
+                  <li>
+                    <a href="#conciliacion-de-pagos-tarjetas-de-credito" class="toc-h2 toc-link" data-title="Conciliación de pagos Tarjetas de Crédito">Conciliación de pagos Tarjetas de Crédito</a>
+                  </li>
+                  <li>
+                    <a href="#conciliacion-de-pagos-tarjetas-de-credito-2" class="toc-h2 toc-link" data-title="Conciliación de pagos Tarjetas de Crédito">Conciliación de pagos Tarjetas de Crédito</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#objetos-globales" class="toc-h1 toc-link" data-title="Objetos globales">Objetos globales</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1292,6 +1315,160 @@
 <td></td>
 </tr>
 </tbody></table>
+<h1 id='archivos-planos'>Archivos Planos</h1><h2 id='certificado-de-cobertura-emitido-asociado-a-una-operacion'>Certificado de cobertura emitido asociado a una  Operación</h2>
+<blockquote>
+<p>Ejemplo de campos del archivo</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>Tipo de documento,
+Número,
+Complemento Extensión,
+Tipo de producto,
+Fecha de solicitud,
+Número de solicitud *,
+Número de operación,
+jts_oid,
+Tipo de Operación
+
+* Solo aplica para Operaciones con Flujo. Para las fuera de Flujo viene vacío
+</code></pre></div><h3 id='periodicidad'>Periodicidad</h3>
+<p>Diario</p>
+<h3 id='horario'>Horario</h3>
+<p>&gt;= 00:00</p>
+<h3 id='repositorio'>Repositorio</h3>
+<p>SFTP</p>
+<h3 id='tipo-de-archivo'>Tipo de archivo</h3>
+<p>TXT</p>
+<h3 id='nombre-archivo'>Nombre Archivo:</h3>
+<p>OP_CRED_YYYY_MM_DD</p>
+<h2 id='alimentar-el-detalle-de-primas-cobradas-en-el-banco-diariamente'>Alimentar el detalle de primas cobradas en el Banco diariamente.</h2>
+<blockquote>
+<p>Ejemplo de campos del archivo</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>Numero operación ASFI,
+Tipo_Producto (Reg/No Reg),
+Jts_oid,
+Fecha desembolso,
+Fecha vencimiento operación,
+Monto desembolsado,
+Valor asegurado operación (Saldo),
+Intereses reportados,
+Periodo coberturado de pago en días,
+Prima Total,
+Diferimiento (SI/NO)
+</code></pre></div><h3 id='periodicidad-2'>Periodicidad</h3>
+<p>Diario</p>
+<h3 id='horario-2'>Horario</h3>
+<p>&gt;= 00:00</p>
+<h3 id='repositorio-2'>Repositorio</h3>
+<p>SFTP</p>
+<h3 id='tipo-de-archivo-2'>Tipo de archivo</h3>
+<p>TXT</p>
+<h3 id='nombre-archivo-2'>Nombre Archivo:</h3>
+<p>CONC_COB_PRIMAS_YYYY_MM_DD</p>
+<h2 id='datos-de-solicitud-seguro-tarjetas-de-credito'>Datos de solicitud seguro Tarjetas de Crédito</h2>
+<blockquote>
+<p>Ejemplo de campos del archivo</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>Tipo de documento,
+Número,
+Complemento Extensión,
+Tipo Tarjeta,
+Nombre Tarjeta,
+Nro Tarjeta CMS/Nro Cuenta CMS,
+Nro Solicitud,
+Límite de tarjeta crédito,
+Fecha vencimiento tarjeta,
+Moneda,
+Seguro Protección,
+NIT,
+Producto TC/Producto *
+
+* Dentro de Tarjetas de Crédito se requiere identificar a que tipo de tarjeta corresponde.
+</code></pre></div><h3 id='periodicidad-3'>Periodicidad</h3>
+<p>Diario</p>
+<h3 id='horario-3'>Horario</h3>
+<p>&gt;= 00:00</p>
+<h3 id='repositorio-3'>Repositorio</h3>
+<p>SFTP</p>
+<h3 id='tipo-de-archivo-3'>Tipo de archivo</h3>
+<p>TXT</p>
+<h3 id='nombre-archivo-3'>Nombre Archivo:</h3>
+<p>SEG_TC_YYYY_MM_DD</p>
+<h2 id='datos-de-solicitud-seguro-tarjetas-de-debito'>Datos de solicitud seguro Tarjetas de Débito</h2>
+<blockquote>
+<p>Ejemplo de campos del archivo</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>Tipo de documento,
+Número,
+Complemento Extensión,
+Tipo Tarjeta,
+Nombre Tarjeta,
+Sucursal,
+Seguro Protección,
+ID Tarjeta/Nro Tarjeta,
+Fecha vencimiento tarjeta,
+Moneda,
+NIT
+</code></pre></div><h3 id='periodicidad-4'>Periodicidad</h3>
+<p>Diario</p>
+<h3 id='horario-4'>Horario</h3>
+<p>&gt;= 00:00</p>
+<h3 id='repositorio-4'>Repositorio</h3>
+<p>SFTP</p>
+<h3 id='tipo-de-archivo-4'>Tipo de archivo</h3>
+<p>TXT</p>
+<h3 id='nombre-archivo-4'>Nombre Archivo:</h3>
+<p>SEG_TD_YYYY_MM_DD</p>
+<h2 id='conciliacion-de-pagos-tarjetas-de-credito'>Conciliación de pagos Tarjetas de Crédito</h2>
+<blockquote>
+<p>Ejemplo de campos del archivo</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>Nro Tarjeta CMS/Nro Cuenta CMS,
+Sucursal,
+Nro Operación,
+Limite Credito,
+Nombre TarjetaHabiente,
+Tipo de documento,
+Número,
+Complemento Extensión,
+Saldo Deudor,
+Moneda,
+Fecha de Alta,
+Prima Total
+</code></pre></div><h3 id='periodicidad-5'>Periodicidad</h3>
+<p>Mensual     Banco debe confirmar fecha exacta de cada mes </p>
+<h3 id='horario-5'>Horario</h3>
+<p>&gt;= 00:00</p>
+<h3 id='repositorio-5'>Repositorio</h3>
+<p>SFTP</p>
+<h3 id='tipo-de-archivo-5'>Tipo de archivo</h3>
+<p>TXT</p>
+<h3 id='nombre-archivo-5'>Nombre Archivo:</h3>
+<p>CONC_COB_TC_YYYY_MM_DD</p>
+<h2 id='conciliacion-de-pagos-tarjetas-de-credito-2'>Conciliación de pagos Tarjetas de Crédito</h2>
+<blockquote>
+<p>Ejemplo de campos del archivo</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>ID Tarjeta/Nro Tarjeta,
+Moneda,
+Saldo JTS OID,
+Tipo de documento,
+Número,
+Complemento Extensión,
+Saldo,
+Período,
+Importe,
+Sucursal TJD
+</code></pre></div><h3 id='periodicidad-6'>Periodicidad</h3>
+<p>Mensual     Banco debe confirmar fecha exacta de cada mes </p>
+<h3 id='horario-6'>Horario</h3>
+<p>&gt;= 00:00</p>
+<h3 id='repositorio-6'>Repositorio</h3>
+<p>SFTP</p>
+<h3 id='tipo-de-archivo-6'>Tipo de archivo</h3>
+<p>TXT</p>
+<h3 id='nombre-archivo-6'>Nombre Archivo:</h3>
+<p>CONC_COB_TD_YYYY_MM_DD</p>
 <h1 id='objetos-globales'>Objetos globales</h1>
 <p>Listado de objetos que se usan en varias integrciones</p>
 <h2 id='tipo-de-operacion'>Tipo de Operación</h2>
