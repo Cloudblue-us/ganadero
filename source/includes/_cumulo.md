@@ -54,6 +54,9 @@ numeroDeIdentificacion | number | Número de identificación
 complementoIdentificacion | string | Complemento al número de identificación
 extensionIdentificacion | string | Sufijo con el código del estado de emisión del carnet
 tipoProducto | string | [Tipo de Operación](#tipo-de-operacion)
+tipoDeOperacion | string | 
+jts | number | 
+numeroDeLineaDeCredito | string |
 
 ### Objeto de respuesta
 > Ejemplo de objeto de respuesta
