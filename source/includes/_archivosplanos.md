@@ -7,7 +7,8 @@
 ```txt
 Tipo de documento,
 Número,
-Complemento	Extensión,
+Complemento,
+Extensión,
 Tipo de producto,
 Fecha de solicitud,
 Número de solicitud *,
@@ -67,17 +68,22 @@ CONC_COB_PRIMAS_YYYY_MM_DD
 ```txt
 Tipo de documento,
 Número,
-Complemento	Extensión,
+Complemento,
+Extensión,
 Tipo Tarjeta,
 Nombre Tarjeta,
 Nro Tarjeta CMS/Nro Cuenta CMS,
 Nro Solicitud,
+Nro Operación,
 Límite de tarjeta crédito,
 Fecha vencimiento tarjeta,
 Moneda,
-Seguro Protección,
 NIT,
-Producto TC/Producto *
+Producto TC/Producto *,
+Prima,
+Fecha de Alta,
+Fecha de corte mensual,
+Tipo de Seguro (Desgravamen, Sepelio y Protección)
 
 * Dentro de Tarjetas de Crédito se requiere identificar a que tipo de tarjeta corresponde.
 ```
@@ -101,7 +107,8 @@ SEG_TC_YYYY_MM_DD
 ```txt
 Tipo de documento,
 Número,
-Complemento	Extensión,
+Complemento,
+Extensión,
 Tipo Tarjeta,
 Nombre Tarjeta,
 Sucursal,
@@ -109,7 +116,9 @@ Seguro Protección,
 ID Tarjeta/Nro Tarjeta,
 Fecha vencimiento tarjeta,
 Moneda,
-NIT
+NIT,
+Prima,
+Fecha de Alta
 ```
 
 ### Periodicidad
@@ -131,16 +140,20 @@ SEG_TD_YYYY_MM_DD
 ```txt
 Nro Tarjeta CMS/Nro Cuenta CMS,
 Sucursal,
+Jts_oid,
 Nro Operación,
 Limite Credito,
 Nombre TarjetaHabiente,
 Tipo de documento,
 Número,
-Complemento	Extensión,
+Complemento,
+Extensión,
 Saldo Deudor,
 Moneda,
 Fecha de Alta,
 Prima Total
+Fecha de corte mensual,
+Tipo de Seguro (Desgravamen, Sepelio y Protección)
 ```
 
 ### Periodicidad
@@ -165,7 +178,8 @@ Moneda,
 Saldo JTS OID,
 Tipo de documento,
 Número,
-Complemento	Extensión,
+Complemento,
+Extensión,
 Saldo,
 Período,
 Importe,
