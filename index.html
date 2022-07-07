@@ -351,7 +351,7 @@
             <a href="#archivos-planos" class="toc-h1 toc-link" data-title="Archivos Planos">Archivos Planos</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#certificado-de-cobertura-emitido-asociado-a-una-operacion" class="toc-h2 toc-link" data-title="Certificado de cobertura emitido asociado a una  Operación">Certificado de cobertura emitido asociado a una  Operación</a>
+                    <a href="#certificado-de-cobertura-emitido-asociado-a-una-operacion" class="toc-h2 toc-link" data-title="Certificado de cobertura emitido asociado a una Operación">Certificado de cobertura emitido asociado a una Operación</a>
                   </li>
                   <li>
                     <a href="#alimentar-el-detalle-de-primas-cobradas-en-el-banco-diariamente" class="toc-h2 toc-link" data-title="Alimentar el detalle de primas cobradas en el Banco diariamente.">Alimentar el detalle de primas cobradas en el Banco diariamente.</a>
@@ -366,7 +366,7 @@
                     <a href="#conciliacion-de-pagos-tarjetas-de-credito" class="toc-h2 toc-link" data-title="Conciliación de pagos Tarjetas de Crédito">Conciliación de pagos Tarjetas de Crédito</a>
                   </li>
                   <li>
-                    <a href="#conciliacion-de-pagos-tarjetas-de-credito-2" class="toc-h2 toc-link" data-title="Conciliación de pagos Tarjetas de Crédito">Conciliación de pagos Tarjetas de Crédito</a>
+                    <a href="#conciliacion-de-pagos-tarjetas-de-debito" class="toc-h2 toc-link" data-title="Conciliación de pagos Tarjetas de Débito">Conciliación de pagos Tarjetas de Débito</a>
                   </li>
               </ul>
           </li>
@@ -1074,6 +1074,8 @@
 <p>El cúmulo es el resultado de la suma de los saldos de las operaciones vigentes que tengan por producto (licitado y no licitado), considerando la particularidad de las líneas de crédito y montos disponibles de tarjetas de crédito y se resta el monto de la operación seleccionada a dar de baja por la reprogramación. </p>
 <h4 id='refinanciamiento'>REFINANCIAMIENTO </h4>
 <p>El cúmulo es el resultado de la suma de los saldos de las operaciones vigentes que tengan seguro por producto (licitado y no licitado), considerando la particularidad de las líneas de crédito y montos disponibles de tarjetas de crédito y se resta el monto de la operación seleccionada a dar de baja por el refinanciamiento. </p>
+<h4 id='tarjetas-de-credito'>TARJETAS DE CRÉDITO </h4>
+<p>No genera cúmulo y por tanto el Core de seguros no solicita integración.</p>
 <h2 id='cumulo-de-clientes'>Cúmulo de clientes</h2>
 <p>El método consulta al banco o entidad externa el valor de cúmulo del cliente</p>
 <h3 id='http-request'>HTTP Request</h3>
@@ -1091,7 +1093,7 @@
     </span><span class="nl">"extensionIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SC"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"tipoProducto"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nl">"tipoDeOperacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"jts"</span><span class="p">:</span><span class="w"> </span><span class="mi">00000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"jts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"numeroDeLineaDeCredito"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -1330,7 +1332,7 @@
 <td></td>
 </tr>
 </tbody></table>
-<h1 id='archivos-planos'>Archivos Planos</h1><h2 id='certificado-de-cobertura-emitido-asociado-a-una-operacion'>Certificado de cobertura emitido asociado a una  Operación</h2>
+<h1 id='archivos-planos'>Archivos Planos</h1><h2 id='certificado-de-cobertura-emitido-asociado-a-una-operacion'>Certificado de cobertura emitido asociado a una Operación</h2>
 <blockquote>
 <p>Ejemplo de campos del archivo</p>
 </blockquote>
@@ -1343,7 +1345,8 @@ Fecha de solicitud,
 Número de solicitud *,
 Número de operación,
 jts_oid,
-Tipo de Operación
+Tipo de Operación,
+Número Línea de Crédito
 
 * Solo aplica para Operaciones con Flujo. Para las fuera de Flujo viene vacío
 </code></pre></div><h3 id='periodicidad'>Periodicidad</h3>
@@ -1370,7 +1373,11 @@ Valor asegurado operación (Saldo),
 Intereses reportados,
 Periodo coberturado de pago en días,
 Prima Total,
-Diferimiento (SI/NO)
+Diferimiento (SI/NO),
+Tipo de documento,
+Número,
+Complemento,
+Extensión
 </code></pre></div><h3 id='periodicidad-2'>Periodicidad</h3>
 <p>Diario</p>
 <h3 id='horario-2'>Horario</h3>
@@ -1391,7 +1398,8 @@ Complemento,
 Extensión,
 Tipo Tarjeta,
 Nombre Tarjeta,
-Nro Tarjeta CMS/Nro Cuenta CMS,
+Nro Tarjeta CMS,
+Nro Cuenta CMS,
 Nro Solicitud,
 Nro Operación,
 Límite de tarjeta crédito,
@@ -1402,7 +1410,8 @@ Producto TC/Producto *,
 Prima,
 Fecha de Alta,
 Fecha de corte mensual,
-Tipo de Seguro (Desgravamen, Sepelio y Protección)
+Tipo de Seguro (Desgravamen, Sepelio y Protección),
+Grupo Afinidad
 
 * Dentro de Tarjetas de Crédito se requiere identificar a que tipo de tarjeta corresponde.
 </code></pre></div><h3 id='periodicidad-3'>Periodicidad</h3>
@@ -1447,7 +1456,8 @@ Fecha de Alta
 <blockquote>
 <p>Ejemplo de campos del archivo</p>
 </blockquote>
-<div class="highlight"><pre class="highlight plaintext"><code>Nro Tarjeta CMS/Nro Cuenta CMS,
+<div class="highlight"><pre class="highlight plaintext"><code>Nro Tarjeta CMS,
+Nro Cuenta CMS,
 Sucursal,
 Jts_oid,
 Nro Operación,
@@ -1473,13 +1483,13 @@ Tipo de Seguro (Desgravamen, Sepelio y Protección)
 <p>TXT</p>
 <h3 id='nombre-archivo-5'>Nombre Archivo:</h3>
 <p>CONC_COB_TC_YYYY_MM_DD</p>
-<h2 id='conciliacion-de-pagos-tarjetas-de-credito-2'>Conciliación de pagos Tarjetas de Crédito</h2>
+<h2 id='conciliacion-de-pagos-tarjetas-de-debito'>Conciliación de pagos Tarjetas de Débito</h2>
 <blockquote>
 <p>Ejemplo de campos del archivo</p>
 </blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>ID Tarjeta/Nro Tarjeta,
 Moneda,
-Saldo JTS OID,
+Saldo Jts_oid,
 Tipo de documento,
 Número,
 Complemento,
