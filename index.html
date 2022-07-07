@@ -957,7 +957,7 @@
 <td>actividadEconomica</td>
 <td>string</td>
 <td>false</td>
-<td>Códigos CIIU</td>
+<td>Códigos CAEDEC</td>
 </tr>
 <tr>
 <td>fechaDeIngresoAlTrabajo</td>
@@ -1125,22 +1125,22 @@
 <tr>
 <td>tipoProducto</td>
 <td>string</td>
-<td><a href="#tipo-de-operacion">Tipo de Operación</a></td>
+<td>Regulado/No Regulado</td>
 </tr>
 <tr>
 <td>tipoDeOperacion</td>
 <td>string</td>
-<td></td>
+<td>Ver Objetos Globales</td>
 </tr>
 <tr>
 <td>jts</td>
 <td>number</td>
-<td></td>
+<td>Codigo Unico BG</td>
 </tr>
 <tr>
 <td>numeroDeLineaDeCredito</td>
 <td>string</td>
-<td></td>
+<td>Código de Linea de Crédito</td>
 </tr>
 </tbody></table>
 <h3 id='objeto-de-respuesta'>Objeto de respuesta</h3>
@@ -1336,7 +1336,8 @@
 </blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>Tipo de documento,
 Número,
-Complemento Extensión,
+Complemento,
+Extensión,
 Tipo de producto,
 Fecha de solicitud,
 Número de solicitud *,
@@ -1386,17 +1387,22 @@ Diferimiento (SI/NO)
 </blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>Tipo de documento,
 Número,
-Complemento Extensión,
+Complemento,
+Extensión,
 Tipo Tarjeta,
 Nombre Tarjeta,
 Nro Tarjeta CMS/Nro Cuenta CMS,
 Nro Solicitud,
+Nro Operación,
 Límite de tarjeta crédito,
 Fecha vencimiento tarjeta,
 Moneda,
-Seguro Protección,
 NIT,
-Producto TC/Producto *
+Producto TC/Producto *,
+Prima,
+Fecha de Alta,
+Fecha de corte mensual,
+Tipo de Seguro (Desgravamen, Sepelio y Protección)
 
 * Dentro de Tarjetas de Crédito se requiere identificar a que tipo de tarjeta corresponde.
 </code></pre></div><h3 id='periodicidad-3'>Periodicidad</h3>
@@ -1415,7 +1421,8 @@ Producto TC/Producto *
 </blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>Tipo de documento,
 Número,
-Complemento Extensión,
+Complemento,
+Extensión,
 Tipo Tarjeta,
 Nombre Tarjeta,
 Sucursal,
@@ -1423,7 +1430,9 @@ Seguro Protección,
 ID Tarjeta/Nro Tarjeta,
 Fecha vencimiento tarjeta,
 Moneda,
-NIT
+NIT,
+Prima,
+Fecha de Alta
 </code></pre></div><h3 id='periodicidad-4'>Periodicidad</h3>
 <p>Diario</p>
 <h3 id='horario-4'>Horario</h3>
@@ -1440,16 +1449,20 @@ NIT
 </blockquote>
 <div class="highlight"><pre class="highlight plaintext"><code>Nro Tarjeta CMS/Nro Cuenta CMS,
 Sucursal,
+Jts_oid,
 Nro Operación,
 Limite Credito,
 Nombre TarjetaHabiente,
 Tipo de documento,
 Número,
-Complemento Extensión,
+Complemento,
+Extensión,
 Saldo Deudor,
 Moneda,
 Fecha de Alta,
 Prima Total
+Fecha de corte mensual,
+Tipo de Seguro (Desgravamen, Sepelio y Protección)
 </code></pre></div><h3 id='periodicidad-5'>Periodicidad</h3>
 <p>Mensual     Banco debe confirmar fecha exacta de cada mes </p>
 <h3 id='horario-5'>Horario</h3>
@@ -1469,7 +1482,8 @@ Moneda,
 Saldo JTS OID,
 Tipo de documento,
 Número,
-Complemento Extensión,
+Complemento,
+Extensión,
 Saldo,
 Período,
 Importe,
