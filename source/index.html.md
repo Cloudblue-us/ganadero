@@ -13,7 +13,7 @@ includes:
   - financiera
   - clientes
   - cumulo
-  - clientes
+  - cuentas
   - archivosplanos
   - objectosglobales
 
