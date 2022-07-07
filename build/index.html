@@ -340,10 +340,10 @@
               </ul>
           </li>
           <li>
-            <a href="#conciliacion" class="toc-h1 toc-link" data-title="Conciliación">Conciliación</a>
+            <a href="#clientes" class="toc-h1 toc-link" data-title="Clientes">Clientes</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#conciliacion-de-pago-de-polizas" class="toc-h2 toc-link" data-title="Conciliación de pago de pólizas">Conciliación de pago de pólizas</a>
+                    <a href="#consultar-clientes" class="toc-h2 toc-link" data-title="Consultar clientes">Consultar clientes</a>
                   </li>
               </ul>
           </li>
@@ -1166,10 +1166,10 @@
 <td>Valor adeudado a la fecha de consulta por el cliente titular/codeudor</td>
 </tr>
 </tbody></table>
-<h1 id='conciliacion'>Conciliación</h1>
-<p>Métodos para la conciliación de pagos hacia SF</p>
-<h2 id='conciliacion-de-pago-de-polizas'>Conciliación de pago de pólizas</h2>
-<p>El método consulta al banco o entidad externa las pólizas que se han pagado en un rango de fechas</p>
+<h1 id='clientes'>Clientes</h1>
+<p>Consulta a la entidad financiera o agente externo de la información del cliente.</p>
+<h2 id='consultar-clientes'>Consultar clientes</h2>
+<p>El método consulta al banco o entidad externa la información personal, de contacto y relaciones del cliente</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET por/definir</code></p>
 <h3 id='content-type'>Content-type</h3>
@@ -1179,32 +1179,43 @@
 <p>Ejemplo de objeto de consulta</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"fechaInicial"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-21 00:00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fechaFinal"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-21 24:59:59"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"tipoProducto"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="nl">"tipoDeIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CI"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"numeroDeIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"complementoIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1A"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extensionIdentificacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SC"</span><span class="p">,</span><span class="w">        
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
 <tr>
 <th>Atributo</th>
 <th>Tipo</th>
+<th>Requerido</th>
 <th>Descripción</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>fechaInicial</td>
-<td>Date</td>
-<td>Fecha inicial de la consulta de pólizas pagadas</td>
-</tr>
-<tr>
-<td>fechaFinal</td>
-<td>Date</td>
-<td>Fecha final de la consulta de pólizas pagadas</td>
-</tr>
-<tr>
-<td>tipoProducto</td>
+<td>tipoDeIdentificacion</td>
 <td>string</td>
-<td><code>*por codificar</code></td>
+<td>true</td>
+<td>Tipo de identificación del cliente, CI para carnet de identificación, CIE para Cédula de extranjería</td>
+</tr>
+<tr>
+<td>numeroDeIdentificacion</td>
+<td>number</td>
+<td>true</td>
+<td>Número del carnet de identificación</td>
+</tr>
+<tr>
+<td>complementoIdentificacion</td>
+<td>string</td>
+<td>true</td>
+<td>Complemento al número de identificación</td>
+</tr>
+<tr>
+<td>extensionIdentificacion</td>
+<td>string</td>
+<td>true</td>
+<td>Sufijo con el código del estado de emisión del carnet</td>
 </tr>
 </tbody></table>
 <h3 id='objeto-de-respuesta'>Objeto de respuesta</h3>
@@ -1212,45 +1223,74 @@
 <p>Ejemplo de objeto de respuesta</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"operaciones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Juanita"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"apellidoPaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pérez"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"apellidoMaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ramirez"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"apellidoDeCasada"</span><span class="p">:</span><span class="w"> </span><span class="s2">"de Rodríguez"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sexo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Femenino"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fechaDeNacimiento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1970-05-21"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"correoElectronico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"juanita.perez@prueba.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"estadoCivil"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Casado/a"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nacionalidad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boliviana"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"redesSociales"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cantidadHijos"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ingresoPesos"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nivelIngresos"</span><span class="p">:</span><span class="w"> </span><span class="mi">00000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nivelEducacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"discapacitado"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tipoDeVivienda"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"porcentajeCreditoAsumido"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"informacionDelConyuge"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Juan"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"apellidoPaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rodríguez"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"apellidoMaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sanchez"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"apellidoDeCasada"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sexo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Masculino"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fechaDeNacimiento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1968-03-14"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"correoElectronico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"juan.rodriguez@prueba.com"</span><span class="p">,</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"informacionDeResidencia"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"paisDeResidencia"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bolivia"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"direccion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle del Alto, N 50"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"departamento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Paz"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ciudad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Paz"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"telefono"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"celular"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"informacionLaboral"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"lugarDeTrabajo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa de construcción ABC"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cargo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gerente"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"profesion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ingeniero"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"actividadEconomica"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"fechaDeIngresoAlTrabajo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-15"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"domicilioComercial"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Calle de los ingenieros, N 12"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"departamento"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Paz"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ciudad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La Paz"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"telefono"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"correoElectronico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contacto@abcconstructores.com"</span><span class="w"> 
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"referencias"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"numeroDeCertificado"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SC-DL22-000001"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"numeroDeOperacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"fechaDeDesembolso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-21 00:00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"fechaDeVencimientoOperacion"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-21 00:00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"montoDesembolsado"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"saldoInsoluto"</span><span class="p">:</span><span class="w"> </span><span class="mi">90000</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"interesesReportados"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"periodoPago"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"primaTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"numeroCuentaCMS"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"diferimiento"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="nl">"tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Juan"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apellidoPaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pérez"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apellidoMaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ramirez"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apellidoDeCasada"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"relacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hermano"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"telefono"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234789"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"correoElectronico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"juan@prueba.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"entidad"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"numeroDeCertificado"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SC-DL22-000002"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"numeroDeOperacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"fechaDeDesembolso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-21 00:00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"fechaDeVencimientoOperacion"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-21 00:00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"montoDesembolsado"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"saldoInsoluto"</span><span class="p">:</span><span class="w"> </span><span class="mi">90000</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"interesesReportados"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"periodoPago"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"primaTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"numeroCuentaCMS"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"diferimiento"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"numeroDeCertificado"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SC-DL22-000003"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"numeroDeOperacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"fechaDeDesembolso"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-05-21 00:00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"fechaDeVencimientoOperacion"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-05-21 00:00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"montoDesembolsado"</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"saldoInsoluto"</span><span class="p">:</span><span class="w"> </span><span class="mi">90000</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"interesesReportados"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"periodoPago"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"primaTotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"numeroCuentaCMS"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"diferimiento"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="nl">"tipo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bancaria"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"nombre"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alberto"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apellidoPaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marquez"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apellidoMaterno"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"apellidoDeCasada"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"relacion"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"telefono"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234789"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"correoElectronico"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alberto@bancomayor.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"entidad"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Banco Mayor"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1258,78 +1298,368 @@
 <table><thead>
 <tr>
 <th>Atributo</th>
-<th>Tipo</th>
+<th>tipo</th>
+<th>Requerido</th>
 <th>Descripción</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>operaciones</td>
-<td>Arreglo de <a href="#items-de-conciliacion">Items de conciliación</a></td>
-<td>Las pólizas a conciliar el pago</td>
+<td>nombre</td>
+<td>string</td>
+<td>true</td>
+<td>Nombres del cliente</td>
+</tr>
+<tr>
+<td>apellidoPaterno</td>
+<td>string</td>
+<td>true</td>
+<td>Apellido paterno del cliente</td>
+</tr>
+<tr>
+<td>apellidoMaterno</td>
+<td>string</td>
+<td>false</td>
+<td>Apellido materno del cliente</td>
+</tr>
+<tr>
+<td>apellidoDeCasada</td>
+<td>string</td>
+<td>false</td>
+<td>Apellido de casada de la cliente</td>
+</tr>
+<tr>
+<td>sexo</td>
+<td>string</td>
+<td>true</td>
+<td>Sexo del cliente. Valores permitidos <code>Masculino</code> o <code>Femenino</code></td>
+</tr>
+<tr>
+<td>fechaDeNacimiento</td>
+<td>date</td>
+<td>true</td>
+<td>Fecha de nacimiento del cliente</td>
+</tr>
+<tr>
+<td>correoElectronico</td>
+<td>string</td>
+<td>true</td>
+<td>Correo electrónico del cliente</td>
+</tr>
+<tr>
+<td>estadoCivil</td>
+<td>string</td>
+<td>true</td>
+<td>Estado civil del cliente. Valores permitidos <code>Casado</code>, <code>Soltero</code>, <code>Separado</code> o <code>Viudo</code></td>
+</tr>
+<tr>
+<td>nacionalidad</td>
+<td>number</td>
+<td>Código de la nacionalidad del cliente <code>*por definir*</code></td>
+<td></td>
+</tr>
+<tr>
+<td>redesSociales</td>
+<td>string</td>
+<td><code>*por definir*</code></td>
+<td></td>
+</tr>
+<tr>
+<td>cantidadHijos</td>
+<td>number</td>
+<td>Cantidad de hijos del cliente</td>
+<td></td>
+</tr>
+<tr>
+<td>ingresoPesos</td>
+<td>number</td>
+<td><code>*por definir*</code></td>
+<td></td>
+</tr>
+<tr>
+<td>nivelIngresos</td>
+<td>number</td>
+<td><code>*por definir*</code></td>
+<td></td>
+</tr>
+<tr>
+<td>nivelEducacion</td>
+<td>string</td>
+<td><code>*por definir*</code></td>
+<td></td>
+</tr>
+<tr>
+<td>discapacitado</td>
+<td>boolean</td>
+<td><code>*por definir*</code></td>
+<td></td>
+</tr>
+<tr>
+<td>tipoDeVivienda</td>
+<td>string</td>
+<td><code>*por definir*</code></td>
+<td></td>
+</tr>
+<tr>
+<td>porcentajeCreditoAsumido</td>
+<td>number</td>
+<td>Porcentaje del crédito asumido por el cliente</td>
+<td></td>
+</tr>
+<tr>
+<td>informacionDelConyuge</td>
+<td><a href="#Informacion-del-conyugue">Información del cónyuge</a></td>
+<td>false</td>
+<td>Contiene la información del cónyuge del cliente</td>
+</tr>
+<tr>
+<td>informacionDeResidencia</td>
+<td><a href="#Informacion-de-residencia">Información de residencia</a></td>
+<td>true</td>
+<td>Contiene la información de residencia del cliente</td>
+</tr>
+<tr>
+<td>informacionLaboral</td>
+<td><a href="#Informacion-laboral">Información laboral</a></td>
+<td>true</td>
+<td>Contiene la información laboral del cliente</td>
+</tr>
+<tr>
+<td>referencias</td>
+<td>Arreglo de <a href="#Referencias">Referencias</a></td>
+<td>false</td>
+<td>Referencias personales y bancarias del cliente</td>
 </tr>
 </tbody></table>
-<h3 id='items-de-conciliacion'>Items de conciliación</h3>
+<h3 id='informacion-del-conyuge'>Información del cónyuge</h3>
 <table><thead>
 <tr>
 <th>Atributo</th>
-<th>Tipo</th>
+<th>tipo</th>
+<th>Requerido</th>
 <th>Descripción</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>numeroDeCertificado</td>
+<td>nombre</td>
 <td>string</td>
-<td>Número de certificado del producto asegurado</td>
+<td>true</td>
+<td>Nombres del cónyuge</td>
 </tr>
 <tr>
-<td>numeroDeOperacion</td>
+<td>apellidoPaterno</td>
 <td>string</td>
-<td>Número de operación o referencia del producto asegurado</td>
+<td>true</td>
+<td>Apellido paterno del cónyuge</td>
 </tr>
 <tr>
-<td>fechaDeDesembolso</td>
-<td>Date</td>
-<td>Fecha en la cual se desembolsó el crédito asegurado. Formato: <code>yyyy-MM-dd HH:mm:ss</code></td>
-</tr>
-<tr>
-<td>fechaDeVencimientoOperacion</td>
-<td>Date</td>
-<td>Fecha en la cual se vence el crédito asegurado. Formato: <code>yyyy-MM-dd HH:mm:ss</code></td>
-</tr>
-<tr>
-<td>montoDesembolsado</td>
-<td>number</td>
-<td>Valor del crédito que se desembolsó</td>
-</tr>
-<tr>
-<td>saldoInsoluto</td>
-<td>number</td>
-<td>Valor del saldo insoluto del crédito desembolsado</td>
-</tr>
-<tr>
-<td>interesesReportados</td>
-<td>number</td>
-<td><code>*por definir</code></td>
-</tr>
-<tr>
-<td>periodoPago</td>
-<td>number</td>
-<td>Cantidad de días que se pagan en la cuota</td>
-</tr>
-<tr>
-<td>primaTotal</td>
-<td>number</td>
-<td>Valor total de prima cobrado para el seguro</td>
-</tr>
-<tr>
-<td>numeroCuentaCMS</td>
+<td>apellidoMaterno</td>
 <td>string</td>
-<td>Número identificador para tarjetas de crédito</td>
+<td>false</td>
+<td>Apellido materno del cónyuge</td>
 </tr>
 <tr>
-<td>diferimiento</td>
-<td>boolean</td>
+<td>apellidoDeCasada</td>
+<td>string</td>
+<td>false</td>
+<td>Apellido de casada de la cónyuge</td>
+</tr>
+<tr>
+<td>sexo</td>
+<td>string</td>
+<td>true</td>
+<td>Sexo del cónyuge. Valores permitidos <code>Masculino</code> o <code>Femenino</code></td>
+</tr>
+<tr>
+<td>fechaDeNacimiento</td>
+<td>date</td>
+<td>true</td>
+<td>Fecha de nacimiento del cónyuge</td>
+</tr>
+<tr>
+<td>correoElectronico</td>
+<td>string</td>
+<td>true</td>
+<td>Correo electrónico del cónyuge</td>
+</tr>
+</tbody></table>
+<h3 id='informacion-de-residencia'>Información de residencia</h3>
+<table><thead>
+<tr>
+<th>Atributo</th>
+<th>tipo</th>
+<th>Requerido</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>paisDeResidencia</td>
+<td>string</td>
+<td>true</td>
+<td>Código del país de residencia del cliente</td>
+</tr>
+<tr>
+<td>direccion</td>
+<td>string</td>
+<td>true</td>
+<td>Dirección de residencia del cliente</td>
+</tr>
+<tr>
+<td>departamento</td>
+<td>string</td>
+<td>true</td>
+<td>Departamento de residencia <code>*Por definir si es codificado</code></td>
+</tr>
+<tr>
+<td>ciudad</td>
+<td>string</td>
+<td>true</td>
+<td>Ciudad de residencia <code>*Por definir si es codificado</code></td>
+</tr>
+<tr>
+<td>telefono</td>
+<td>string</td>
+<td>true</td>
+<td>Teléfono del cliente</td>
+</tr>
+<tr>
+<td>celular</td>
+<td>string</td>
+<td>true</td>
+<td>Celular del cliente</td>
+</tr>
+</tbody></table>
+<h3 id='informacion-laboral'>Información laboral</h3>
+<table><thead>
+<tr>
+<th>Atributo</th>
+<th>tipo</th>
+<th>Requerido</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>lugarDeTrabajo</td>
+<td>string</td>
+<td>true</td>
+<td>Lugar de trabajo del cliente <code>*por definir*</code></td>
+</tr>
+<tr>
+<td>cargo</td>
+<td>string</td>
+<td>false</td>
+<td>Cargo del cliente</td>
+</tr>
+<tr>
+<td>profesion</td>
+<td>string</td>
+<td>true</td>
+<td>Profesión del cliente <code>revisar el listado de profesiones</code></td>
+</tr>
+<tr>
+<td>actividadEconomica</td>
+<td>string</td>
+<td>false</td>
+<td>Códigos CAEDEC</td>
+</tr>
+<tr>
+<td>fechaDeIngresoAlTrabajo</td>
+<td>date</td>
+<td>false</td>
 <td></td>
+</tr>
+<tr>
+<td>domicilioComercial</td>
+<td>string</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>departamento</td>
+<td>string</td>
+<td>false</td>
+<td>Departamento del lugar de trabajo <code>*Por definir si es codificado</code></td>
+</tr>
+<tr>
+<td>ciudad</td>
+<td>string</td>
+<td>false</td>
+<td>Ciudad del lugar de trabajo <code>*Por definir si es codificado</code></td>
+</tr>
+<tr>
+<td>telefono</td>
+<td>string</td>
+<td>false</td>
+<td>Teléfono del lugar de trabajo</td>
+</tr>
+<tr>
+<td>correoElectronico</td>
+<td>string</td>
+<td>false</td>
+<td>Correo electrónico del lugar de trabajo</td>
+</tr>
+</tbody></table>
+<h3 id='referencias'>Referencias</h3>
+<table><thead>
+<tr>
+<th>Atributo</th>
+<th>tipo</th>
+<th>Requerido</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tipo</td>
+<td>string</td>
+<td>true</td>
+<td>Define el tipo de referencia. Los valores válidos son <code>Personal</code> o <code>Bancaria</code></td>
+</tr>
+<tr>
+<td>nombre</td>
+<td>string</td>
+<td>true</td>
+<td>Nombres del contacto de referencia</td>
+</tr>
+<tr>
+<td>apellidoPaterno</td>
+<td>string</td>
+<td>true</td>
+<td>Apellido paterno del contacto de referencia</td>
+</tr>
+<tr>
+<td>apellidoMaterno</td>
+<td>string</td>
+<td>false</td>
+<td>Apellido materno del contacto de referencia</td>
+</tr>
+<tr>
+<td>apellidoDeCasada</td>
+<td>string</td>
+<td>false</td>
+<td>Apellido de casada de la contacto de referencia</td>
+</tr>
+<tr>
+<td>relacion</td>
+<td>string</td>
+<td>false</td>
+<td>Si el tipo de referencia es <code>Personal</code> aca se escribe el tipo de relación personal que tiene el contacto con el cliente</td>
+</tr>
+<tr>
+<td>telefono</td>
+<td>string</td>
+<td>false</td>
+<td>Teléfono del lugar de trabajo</td>
+</tr>
+<tr>
+<td>correoElectronico</td>
+<td>string</td>
+<td>true</td>
+<td>Correo electrónico del contacto</td>
+</tr>
+<tr>
+<td>entidad</td>
+<td>string</td>
+<td>false</td>
+<td>Si el tipo de referencia es <code>Bancaria</code> aca se escribe la entidad bancaria a la que pertenece el contacto</td>
 </tr>
 </tbody></table>
 <h1 id='archivos-planos'>Archivos Planos</h1><h2 id='certificado-de-cobertura-emitido-asociado-a-una-operacion'>Certificado de cobertura emitido asociado a una Operación</h2>
