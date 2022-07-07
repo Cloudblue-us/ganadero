@@ -1,6 +1,6 @@
 # Archivos Planos
 
-## Certificado de cobertura emitido asociado a una  Operación
+## Certificado de cobertura emitido asociado a una Operación
 
 > Ejemplo de campos del archivo
 
@@ -14,7 +14,8 @@ Fecha de solicitud,
 Número de solicitud *,
 Número de operación,
 jts_oid,
-Tipo de Operación
+Tipo de Operación,
+Número Línea de Crédito
 
 * Solo aplica para Operaciones con Flujo. Para las fuera de Flujo viene vacío
 ```
@@ -46,7 +47,11 @@ Valor asegurado operación (Saldo),
 Intereses reportados,
 Periodo coberturado de pago en días,
 Prima Total,
-Diferimiento (SI/NO)
+Diferimiento (SI/NO),
+Tipo de documento,
+Número,
+Complemento,
+Extensión
 ```
 
 ### Periodicidad
@@ -72,7 +77,8 @@ Complemento,
 Extensión,
 Tipo Tarjeta,
 Nombre Tarjeta,
-Nro Tarjeta CMS/Nro Cuenta CMS,
+Nro Tarjeta CMS,
+Nro Cuenta CMS,
 Nro Solicitud,
 Nro Operación,
 Límite de tarjeta crédito,
@@ -83,7 +89,8 @@ Producto TC/Producto *,
 Prima,
 Fecha de Alta,
 Fecha de corte mensual,
-Tipo de Seguro (Desgravamen, Sepelio y Protección)
+Tipo de Seguro (Desgravamen, Sepelio y Protección),
+Grupo Afinidad
 
 * Dentro de Tarjetas de Crédito se requiere identificar a que tipo de tarjeta corresponde.
 ```
@@ -138,7 +145,8 @@ SEG_TD_YYYY_MM_DD
 > Ejemplo de campos del archivo
 
 ```txt
-Nro Tarjeta CMS/Nro Cuenta CMS,
+Nro Tarjeta CMS,
+Nro Cuenta CMS,
 Sucursal,
 Jts_oid,
 Nro Operación,
@@ -168,14 +176,14 @@ TXT
 CONC_COB_TC_YYYY_MM_DD
 
 
-## Conciliación de pagos Tarjetas de Crédito
+## Conciliación de pagos Tarjetas de Débito
 
 > Ejemplo de campos del archivo
 
 ```txt
 ID Tarjeta/Nro Tarjeta,
 Moneda,
-Saldo JTS OID,
+Saldo Jts_oid,
 Tipo de documento,
 Número,
 Complemento,

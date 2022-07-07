@@ -19,6 +19,8 @@ El cúmulo es el resultado de la suma de los saldos de las operaciones vigentes 
 #### REFINANCIAMIENTO 
 El cúmulo es el resultado de la suma de los saldos de las operaciones vigentes que tengan seguro por producto (licitado y no licitado), considerando la particularidad de las líneas de crédito y montos disponibles de tarjetas de crédito y se resta el monto de la operación seleccionada a dar de baja por el refinanciamiento. 
 
+#### TARJETAS DE CRÉDITO 
+No genera cúmulo y por tanto el Core de seguros no solicita integración.
 
 ## Cúmulo de clientes
 
@@ -42,7 +44,7 @@ El método consulta al banco o entidad externa el valor de cúmulo del cliente
     "extensionIdentificacion": "SC",
     "tipoProducto": "",
     "tipoDeOperacion": "",
-    "jts": 00000,
+    "jts": "00000",
     "numeroDeLineaDeCredito": ""
 }
 ```
